@@ -4,187 +4,464 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RNOR Tax Strategy — Fact Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #0d7a55;
+      --green-bg: #e6f6f0;
+      --red:    #c0392b;
+      --red-bg: #fdf0ef;
+      --amber:  #b45309;
+      --amber-bg: #fef3c7;
+      --blue:   #1d4ed8;
+      --blue-bg: #eff6ff;
+      --gray-50:  #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--gray-800);
+      background: var(--gray-50);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0d7a55 100%);
+      color: #fff;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #a5f3d0;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .3rem .85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.75rem, 4vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.25;
+      max-width: 700px;
+      margin: 0 auto .75rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.8);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* LAYOUT */
+    .container {
       max-width: 860px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
-      font-family: Georgia, serif;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: #1a202c;
-      background: #fafafa;
+      padding: 2.5rem 1.5rem 4rem;
     }
-    h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
-    h2 { font-size: 1.3rem; margin-top: 2rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.3rem; }
-    h3 { font-size: 1.05rem; margin-top: 1.5rem; }
-    table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; font-size: 0.95rem; }
-    th, td { border: 1px solid #cbd5e0; padding: 0.6rem 0.8rem; text-align: left; }
-    th { background: #edf2f7; }
-    ul, ol { padding-left: 1.4rem; }
-    a { color: #2b6cb0; text-decoration: underline; }
-    a:hover { color: #2c5282; }
-    .disclaimer { font-size: 0.88rem; color: #718096; border-top: 1px solid #e2e8f0; margin-top: 2.5rem; padding-top: 1rem; }
-    /* Infographic */
+
+    /* INFOGRAPHIC */
     .infographic-wrap {
       background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0 2.5rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      margin: 0 0 2.5rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
     .infographic-wrap svg { display: block; width: 100%; height: auto; }
+
+    /* SECTION CARDS */
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    h2 .section-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin: 1.5rem 0 .5rem;
+      display: flex;
+      align-items: baseline;
+      gap: .5rem;
+    }
+    h3:first-child { margin-top: 0; }
+    .num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    p { margin-bottom: .75rem; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 1.4rem;
+      margin-bottom: .75rem;
+    }
+    li { margin-bottom: .35rem; }
+
+    a { color: var(--blue); text-decoration: none; border-bottom: 1px solid #bfdbfe; transition: color .15s, border-color .15s; }
+    a:hover { color: #1e3a8a; border-color: #1e3a8a; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      border-radius: 8px;
+      padding: .85rem 1rem;
+      margin: 1rem 0;
+      font-size: .95rem;
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+    }
+    .callout-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .05rem; }
+    .callout.green  { background: var(--green-bg);  border-left: 3px solid var(--green);  color: #065f46; }
+    .callout.red    { background: var(--red-bg);    border-left: 3px solid var(--red);    color: #7f1d1d; }
+    .callout.amber  { background: var(--amber-bg);  border-left: 3px solid var(--amber);  color: #78350f; }
+    .callout.blue   { background: var(--blue-bg);   border-left: 3px solid var(--blue);   color: #1e3a8a; }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; margin: 1rem 0; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: .93rem;
+      min-width: 580px;
+    }
+    thead tr { background: var(--gray-800); color: #fff; }
+    thead th { padding: .7rem 1rem; text-align: left; font-weight: 600; font-size: .85rem; letter-spacing: .03em; }
+    tbody tr { border-bottom: 1px solid var(--gray-200); }
+    tbody tr:nth-child(even) { background: var(--gray-50); }
+    tbody tr:hover { background: #eff6ff; transition: background .15s; }
+    td { padding: .65rem 1rem; vertical-align: top; }
+    td:nth-child(2), td:nth-child(3) { white-space: nowrap; }
+    .badge {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .15rem .55rem;
+      border-radius: 999px;
+    }
+    .badge.green { background: var(--green-bg); color: var(--green); }
+    .badge.red   { background: var(--red-bg);   color: var(--red); }
+    .badge.amber { background: var(--amber-bg); color: var(--amber); }
+
+    /* CHECKLIST */
+    .checklist { list-style: none; padding: 0; }
+    .checklist li {
+      display: flex;
+      gap: .6rem;
+      align-items: flex-start;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--green-bg);
+      color: var(--green);
+      font-size: .8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: .2rem;
+    }
+
+    /* BOTTOM LINE CARD */
+    .bottom-line {
+      background: linear-gradient(135deg, #0f172a, #1e3a5f);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .bottom-line h2 { color: #fff; }
+    .bottom-line p { color: rgba(255,255,255,.85); }
+    .bottom-line a { color: #6ee7b7; border-color: rgba(110,231,183,.4); }
+    .bottom-line a:hover { color: #a7f3d0; border-color: #a7f3d0; }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      text-align: center;
+      font-size: .83rem;
+      color: var(--gray-400);
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    /* DIVIDER */
+    .part-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin: .25rem 0 .6rem;
+    }
   </style>
 </head>
 <body>
 
-<h1>RNOR Tax Strategy — Fact Check</h1>
-<p>Does the &ldquo;zero tax in both countries&rdquo; claim for capital gains hold up? Below is a structured breakdown of what the RNOR strategy actually claims, where it is well-founded, and where it oversimplifies.</p>
-
-<!-- INFOGRAPHIC -->
-<div class="infographic-wrap">
-<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" aria-label="RNOR Strategy summary infographic">
-
-  <!-- Background -->
-  <rect width="800" height="420" fill="#f7fafc" rx="10"/>
-
-  <!-- Title -->
-  <text x="400" y="36" text-anchor="middle" font-size="17" font-weight="bold" fill="#2d3748">RNOR Zero-Tax Strategy — At a Glance</text>
-
-  <!-- Column headers -->
-  <rect x="20" y="54" width="230" height="32" rx="6" fill="#4a5568"/>
-  <text x="135" y="74" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">Scenario</text>
-
-  <rect x="262" y="54" width="160" height="32" rx="6" fill="#276749"/>
-  <text x="342" y="74" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">India (RNOR)</text>
-
-  <rect x="434" y="54" width="160" height="32" rx="6" fill="#2c5282"/>
-  <text x="514" y="74" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">US (NRA)</text>
-
-  <rect x="606" y="54" width="174" height="32" rx="6" fill="#744210"/>
-  <text x="693" y="74" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">Net Outcome</text>
-
-  <!-- Row 1 -->
-  <rect x="20" y="98" width="760" height="52" rx="4" fill="#e6fffa"/>
-  <text x="30" y="118" font-size="11.5" fill="#234e52">Visa holder (H-1B/L-1/F-1), properly</text>
-  <text x="30" y="133" font-size="11.5" fill="#234e52">departed, sells during RNOR</text>
-  <text x="342" y="128" text-anchor="middle" font-size="13" fill="#276749" font-weight="bold">✓ Exempt</text>
-  <text x="514" y="128" text-anchor="middle" font-size="13" fill="#276749" font-weight="bold">✓ Likely exempt</text>
-  <text x="693" y="122" text-anchor="middle" font-size="12" fill="#276749" font-weight="bold">🟢 $0 — strategy</text>
-  <text x="693" y="138" text-anchor="middle" font-size="12" fill="#276749" font-weight="bold">works</text>
-
-  <!-- Row 2 -->
-  <rect x="20" y="160" width="760" height="52" rx="4" fill="#fff5f5"/>
-  <text x="30" y="180" font-size="11.5" fill="#742a2a">Green card holder, card not formally</text>
-  <text x="30" y="195" font-size="11.5" fill="#742a2a">abandoned</text>
-  <text x="342" y="190" text-anchor="middle" font-size="13" fill="#276749" font-weight="bold">✓ Exempt</text>
-  <text x="514" y="190" text-anchor="middle" font-size="13" fill="#c53030" font-weight="bold">✗ Still taxable</text>
-  <text x="693" y="184" text-anchor="middle" font-size="12" fill="#c53030" font-weight="bold">🔴 US tax still</text>
-  <text x="693" y="200" text-anchor="middle" font-size="12" fill="#c53030" font-weight="bold">applies</text>
-
-  <!-- Row 3 -->
-  <rect x="20" y="222" width="760" height="52" rx="4" fill="#fffbeb"/>
-  <text x="30" y="242" font-size="11.5" fill="#744210">Departed mid-year, 183+ days in US</text>
-  <text x="30" y="257" font-size="11.5" fill="#744210">in year of sale</text>
-  <text x="342" y="252" text-anchor="middle" font-size="13" fill="#276749" font-weight="bold">✓ Exempt</text>
-  <text x="514" y="252" text-anchor="middle" font-size="13" fill="#c05621" font-weight="bold">⚠ 30% may apply</text>
-  <text x="693" y="246" text-anchor="middle" font-size="12" fill="#c05621" font-weight="bold">🟡 Partial failure —</text>
-  <text x="693" y="262" text-anchor="middle" font-size="12" fill="#c05621" font-weight="bold">timing matters</text>
-
-  <!-- Row 4 -->
-  <rect x="20" y="284" width="760" height="52" rx="4" fill="#ebf4ff"/>
-  <text x="30" y="304" font-size="11.5" fill="#2c5282">Dividends received while holding</text>
-  <text x="30" y="319" font-size="11.5" fill="#2c5282">US ETFs as NRA</text>
-  <text x="342" y="314" text-anchor="middle" font-size="13" fill="#276749" font-weight="bold">✓ Exempt</text>
-  <text x="514" y="314" text-anchor="middle" font-size="13" fill="#c53030" font-weight="bold">✗ 15–30% withheld</text>
-  <text x="693" y="308" text-anchor="middle" font-size="12" fill="#c53030" font-weight="bold">🔴 Withholding</text>
-  <text x="693" y="324" text-anchor="middle" font-size="12" fill="#c53030" font-weight="bold">always applies</text>
-
-  <!-- Key callouts -->
-  <rect x="20" y="350" width="234" height="56" rx="6" fill="#ebf8ff" stroke="#90cdf4" stroke-width="1"/>
-  <text x="137" y="368" text-anchor="middle" font-size="11" font-weight="bold" fill="#2c5282">183-Day Rule</text>
-  <text x="137" y="382" text-anchor="middle" font-size="10.5" fill="#2d3748">Count US days carefully in</text>
-  <text x="137" y="396" text-anchor="middle" font-size="10.5" fill="#2d3748">the calendar year of sale</text>
-
-  <rect x="283" y="350" width="234" height="56" rx="6" fill="#fff5f5" stroke="#feb2b2" stroke-width="1"/>
-  <text x="400" y="368" text-anchor="middle" font-size="11" font-weight="bold" fill="#c53030">Green Card = Extra Steps</text>
-  <text x="400" y="382" text-anchor="middle" font-size="10.5" fill="#2d3748">File IRS Form 8854 +</text>
-  <text x="400" y="396" text-anchor="middle" font-size="10.5" fill="#2d3748">USCIS Form I-407 first</text>
-
-  <rect x="546" y="350" width="234" height="56" rx="6" fill="#f0fff4" stroke="#9ae6b4" stroke-width="1"/>
-  <text x="663" y="368" text-anchor="middle" font-size="11" font-weight="bold" fill="#276749">File W-8BEN</text>
-  <text x="663" y="382" text-anchor="middle" font-size="10.5" fill="#2d3748">Claim treaty rate on dividends</text>
-  <text x="663" y="396" text-anchor="middle" font-size="10.5" fill="#2d3748">proactively with your broker</text>
-</svg>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Tax Strategy Analysis</div>
+  <h1>RNOR Zero-Tax Strategy—Does It Hold Up?</h1>
+  <p>A structured fact-check of the claim that capital gains from US equities can be tax-exempt in both the US and India during the RNOR window.</p>
 </div>
-<!-- END INFOGRAPHIC -->
 
-<h2>What the RNOR Strategy Actually Claims</h2>
-<p>The claim has two parts, each resting on different legal foundations:</p>
+<div class="container">
 
-<h3>Part 1 — India: RNOR Exempts Foreign Income</h3>
-<p>This part is well-founded. Under the <a href="https://www.incometaxindia.gov.in/w/section-6-24" target="_blank" rel="noopener">Indian Income Tax Act, Section 6</a>, a Resident but Not Ordinarily Resident (RNOR) is not taxed on income that accrues or arises outside India. Capital gains from selling US ETFs after returning to India, while in RNOR status, generally fall into this category — meaning India would not tax them. RNOR status typically lasts 2–3 financial years after return, provided you qualify (see checklist below).</p>
+  <!-- INFOGRAPHIC -->
+  <div class="infographic-wrap">
+    <svg viewBox="0 0 800 430" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Arial, sans-serif" aria-label="RNOR Strategy summary infographic">
+      <rect width="800" height="430" fill="#f9fafb" rx="12"/>
 
-<h3>Part 2 — US: NRA Portfolio Capital Gains Exemption</h3>
-<p>This part is real but conditional. Under <a href="https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens" target="_blank" rel="noopener">US domestic law (IRC §871)</a>, a Non-Resident Alien (NRA) is generally not subject to US tax on capital gains from the sale of publicly traded stocks and ETFs. The <a href="https://www.irs.gov/businesses/international-businesses/india-tax-treaty-documents" target="_blank" rel="noopener">India–US Double Tax Avoidance Agreement (DTAA), Article 13</a>, reinforces this by allocating capital gains taxing rights to the country of residence — which would be India during RNOR. Since India then exempts those gains under RNOR, the result is indeed potentially zero tax in either country.</p>
-<p>The strategy is not wrong — but the conditions that must be met are stricter than the headline suggests.</p>
+      <!-- Title -->
+      <text x="400" y="38" text-anchor="middle" font-size="16" font-weight="700" fill="#111827">RNOR Strategy — Scenario Outcomes at a Glance</text>
 
-<h2>Where the Claim Oversimplifies</h2>
+      <!-- Header row -->
+      <rect x="16" y="52" width="768" height="34" rx="6" fill="#1f2937"/>
+      <text x="130" y="73" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Scenario</text>
+      <text x="360" y="73" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">India (RNOR)</text>
+      <text x="520" y="73" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">US (NRA)</text>
+      <text x="683" y="73" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Net Outcome</text>
 
-<h3>1. The 183-Day Trap (US Side)</h3>
-<p>If you are physically present in the US for 183 or more days in the same calendar year you sell the securities, and your gains exceed losses, those gains can become taxable in the US at 30% under the NRA rules. The <a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">IRS Substantial Presence Test</a> governs how these days are counted. If you leave mid-year and sell from India later in the same calendar year, count your US days for that entire calendar year carefully.</p>
+      <!-- Dividers -->
+      <line x1="252" y1="52" x2="252" y2="296" stroke="#374151" stroke-width="1"/>
+      <line x1="436" y1="52" x2="436" y2="296" stroke="#374151" stroke-width="1"/>
+      <line x1="600" y1="52" x2="600" y2="296" stroke="#374151" stroke-width="1"/>
 
-<h3>2. Visa Type Is Everything</h3>
-<p>The NRA exemption works cleanly for H-1B, L-1, F-1, and other non-immigrant visa holders — once you have properly terminated US tax residency by departing. However:</p>
-<ul>
-  <li>If you hold a US green card, you remain a &ldquo;resident alien&rdquo; for US tax purposes even after physically leaving the country.</li>
-  <li>Simply moving abroad does not end US tax residency for green card holders.</li>
-  <li>You must formally abandon the card (<a href="https://www.irs.gov/forms-pubs/about-form-8854" target="_blank" rel="noopener">IRS Form 8854</a> + USCIS Form I-407) and satisfy the IRS residency termination date rules before the NRA exemption applies.</li>
-  <li>Green card holders who skip this step and sell US equities abroad often discover years later that the IRS still considers them US taxpayers.</li>
-</ul>
+      <!-- Row 1 — green -->
+      <rect x="16" y="86" width="768" height="52" rx="0" fill="#ecfdf5"/>
+      <text x="26" y="107" font-size="11" fill="#065f46">Visa holder (H-1B / L-1 / F-1),</text>
+      <text x="26" y="122" font-size="11" fill="#065f46">properly departed, sells during RNOR</text>
+      <text x="360" y="116" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Exempt</text>
+      <text x="520" y="116" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Likely exempt</text>
+      <rect x="618" y="98" width="130" height="28" rx="14" fill="#059669"/>
+      <text x="683" y="116" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">🟢  $0 — Works</text>
 
-<h3>3. The DTAA Savings Clause</h3>
-<p>Article 1(4) of the <a href="https://www.irs.gov/pub/irs-trty/india.pdf" target="_blank" rel="noopener">India–US tax treaty</a> has a &ldquo;savings clause&rdquo; that preserves the US's right to tax its own citizens and residents, regardless of what the treaty allocates. This means the treaty's allocation of capital gains to India does not override US taxation if you are still technically a US resident (e.g., via green card).</p>
+      <!-- Row 2 — red -->
+      <rect x="16" y="138" width="768" height="52" rx="0" fill="#fef2f2"/>
+      <text x="26" y="159" font-size="11" fill="#7f1d1d">Green card holder, card not</text>
+      <text x="26" y="174" font-size="11" fill="#7f1d1d">formally abandoned</text>
+      <text x="360" y="168" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Exempt</text>
+      <text x="520" y="168" text-anchor="middle" font-size="12" fill="#dc2626" font-weight="700">✗ Still taxable</text>
+      <rect x="618" y="150" width="130" height="28" rx="14" fill="#dc2626"/>
+      <text x="683" y="168" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">🔴  Fails (US side)</text>
 
-<h3>4. Exit Tax — If You Held a Green Card 8+ Years</h3>
-<p><a href="https://www.irs.gov/individuals/international-taxpayers/expatriation-tax" target="_blank" rel="noopener">Section 877A of the US Tax Code</a> imposes a &ldquo;deemed-sale&rdquo; exit tax on &ldquo;covered expatriates&rdquo; — those who held a green card for 8 or more years before relinquishing it. If this applies, you face a tax on unrealised gains across your entire asset base on the day you exit, as if everything was sold at fair market value. This is a serious liability that a CPA must assess before departure.</p>
+      <!-- Row 3 — amber -->
+      <rect x="16" y="190" width="768" height="52" rx="0" fill="#fffbeb"/>
+      <text x="26" y="211" font-size="11" fill="#78350f">Departed mid-year, 183+ days</text>
+      <text x="26" y="226" font-size="11" fill="#78350f">in US in year of sale</text>
+      <text x="360" y="220" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Exempt</text>
+      <text x="520" y="220" text-anchor="middle" font-size="12" fill="#d97706" font-weight="700">⚠ 30% may apply</text>
+      <rect x="615" y="202" width="136" height="28" rx="14" fill="#d97706"/>
+      <text x="683" y="220" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">🟡  Timing risk</text>
 
-<h3>5. Dividends Are Different from Capital Gains</h3>
-<p>The NRA exemption covers capital gains on sales — it does <strong>not</strong> cover dividend income. While you continue to hold US ETFs after becoming an NRA, distributions will still have <a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">US withholding</a> applied:</p>
-<ul>
-  <li>Standard rate: 30%</li>
-  <li>Reduced treaty rate under India–US DTAA: typically 15–25%, depending on classification</li>
-  <li>You must file a <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">W-8BEN</a> with your broker and claim treaty benefits proactively — many investors miss this</li>
-</ul>
+      <!-- Row 4 — red -->
+      <rect x="16" y="242" width="768" height="52" rx="0" fill="#fef2f2"/>
+      <text x="26" y="263" font-size="11" fill="#7f1d1d">Dividends received while</text>
+      <text x="26" y="278" font-size="11" fill="#7f1d1d">holding US ETFs as NRA</text>
+      <text x="360" y="272" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Exempt</text>
+      <text x="520" y="272" text-anchor="middle" font-size="12" fill="#dc2626" font-weight="700">✗ 15–30% withheld</text>
+      <rect x="610" y="254" width="142" height="28" rx="14" fill="#dc2626"/>
+      <text x="683" y="272" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">🔴  Always withheld</text>
 
-<h2>Summary: When the Strategy Works and When It Doesn't</h2>
-<table>
-  <thead>
-    <tr><th>Scenario</th><th>India (RNOR)</th><th>US Side</th><th>Net Outcome</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Visa holder, properly departed, sells during RNOR</td><td>Exempt</td><td>Likely exempt (<a href="https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens" target="_blank" rel="noopener">NRA portfolio gain rule</a>)</td><td>Potentially $0 — strategy works</td></tr>
-    <tr><td>Green card holder, card not formally abandoned</td><td>Exempt</td><td>Still taxable as US resident alien</td><td>US tax still applies — strategy fails on US side</td></tr>
-    <tr><td>Departed mid-year, 183+ days in US in year of sale</td><td>Exempt</td><td>30% NRA tax on net gains may apply (<a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">183-day rule</a>)</td><td>Partial failure — timing matters</td></tr>
-    <tr><td>Monthly dividends received while holding as NRA</td><td>Exempt</td><td><a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">US withholding 15–30%</a> applies</td><td>Withholding regardless of RNOR</td></tr>
-  </tbody>
-</table>
-<p><em>All figures illustrative. Tax outcomes depend on individual circumstances. Verify with a qualified CPA.</em></p>
+      <!-- Bottom border of rows -->
+      <rect x="16" y="294" width="768" height="1" fill="#d1d5db"/>
 
-<h2>RNOR Qualification — Quick Checklist</h2>
-<p>You qualify for <a href="https://www.incometaxindia.gov.in/w/residential-status" target="_blank" rel="noopener">RNOR status in India</a> if <strong>either</strong> condition below is met for the relevant financial year:</p>
-<ul>
-  <li>You were a Non-Resident of India (NRI) for 9 out of the 10 financial years preceding the year of return, <strong>OR</strong></li>
-  <li>You were present in India for 729 days or fewer during the 7 financial years preceding the year of return.</li>
-</ul>
-<p>Most people who have been living abroad for several years will satisfy one or both conditions. Confirm with a Chartered Accountant in India before assuming eligibility.</p>
+      <!-- 3 callout cards -->
+      <rect x="16" y="308" width="238" height="106" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="135" y="330" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8">⏰  183-Day Rule</text>
+      <text x="135" y="348" text-anchor="middle" font-size="10.5" fill="#374151">Count US physical-presence days</text>
+      <text x="135" y="363" text-anchor="middle" font-size="10.5" fill="#374151">for the full calendar year of sale.</text>
+      <text x="135" y="378" text-anchor="middle" font-size="10.5" fill="#374151">Departing mid-year doesn’t reset</text>
+      <text x="135" y="393" text-anchor="middle" font-size="10.5" fill="#374151">your count to zero.</text>
 
-<h2>Bottom Line</h2>
-<p>The &ldquo;zero tax in both countries&rdquo; outcome is achievable — but it is a potential best case, not a guaranteed outcome. It works cleanly for non-immigrant visa holders who properly depart the US and update their tax residency. It does not automatically work for green card holders. The <a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">183-day rule</a> and <a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">dividend withholding</a> are genuine traps even for visa holders.</p>
-<p>Before relying on this strategy: confirm your visa/residency status, engage a US-India cross-border CPA for the dual-status departure year return, and open the RNOR conversation with a CA in India well before you land.</p>
+      <rect x="281" y="308" width="238" height="106" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+      <text x="400" y="330" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">💳  Green Card = Extra Steps</text>
+      <text x="400" y="348" text-anchor="middle" font-size="10.5" fill="#374151">File IRS Form 8854 and USCIS</text>
+      <text x="400" y="363" text-anchor="middle" font-size="10.5" fill="#374151">Form I-407 to formally abandon.</text>
+      <text x="400" y="378" text-anchor="middle" font-size="10.5" fill="#374151">Moving abroad alone does NOT</text>
+      <text x="400" y="393" text-anchor="middle" font-size="10.5" fill="#374151">end US tax residency.</text>
 
-<div class="disclaimer">This note is for informational purposes only and does not constitute legal or tax advice. Please consult a qualified professional for personalised guidance.</div>
+      <rect x="546" y="308" width="238" height="106" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="665" y="330" text-anchor="middle" font-size="11" font-weight="700" fill="#059669">📝  File W-8BEN Early</text>
+      <text x="665" y="348" text-anchor="middle" font-size="10.5" fill="#374151">Submit W-8BEN to your broker</text>
+      <text x="665" y="363" text-anchor="middle" font-size="10.5" fill="#374151">to claim the India-US treaty</text>
+      <text x="665" y="378" text-anchor="middle" font-size="10.5" fill="#374151">reduced rate on dividends.</text>
+      <text x="665" y="393" text-anchor="middle" font-size="10.5" fill="#374151">Many investors miss this step.</text>
+    </svg>
+  </div>
 
+  <!-- SECTION 1: What It Claims -->
+  <div class="section-card">
+    <h2><span class="section-icon" style="background:#eff6ff">&#128203;</span> What the RNOR Strategy Actually Claims</h2>
+    <p>The claim has two parts, each resting on different legal foundations:</p>
+
+    <div class="part-label">Part 1 — India</div>
+    <h3>RNOR Exempts Foreign Income</h3>
+    <p>This part is well-founded. Under the <a href="https://www.incometaxindia.gov.in/w/section-6-24" target="_blank" rel="noopener">Indian Income Tax Act, Section 6</a>, a Resident but Not Ordinarily Resident (RNOR) is not taxed on income that accrues or arises outside India. Capital gains from selling US ETFs after returning to India, while in RNOR status, generally fall into this category—meaning India would not tax them. RNOR status typically lasts 2–3 financial years after return, provided you qualify.</p>
+
+    <div class="part-label" style="margin-top:1.25rem">Part 2 — United States</div>
+    <h3>NRA Portfolio Capital Gains Exemption</h3>
+    <p>This part is real but conditional. Under <a href="https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens" target="_blank" rel="noopener">US domestic law (IRC §871)</a>, a Non-Resident Alien (NRA) is generally not subject to US tax on capital gains from the sale of publicly traded stocks and ETFs. The <a href="https://www.irs.gov/businesses/international-businesses/india-tax-treaty-documents" target="_blank" rel="noopener">India–US DTAA, Article 13</a>, reinforces this by allocating capital gains taxing rights to the country of residence—which would be India during RNOR. Since India then exempts those gains under RNOR, the result is potentially zero tax in either country.</p>
+    <div class="callout green"><span class="callout-icon">✅</span><span>The strategy is not wrong—but the conditions that must be met are stricter than the headline suggests.</span></div>
+  </div>
+
+  <!-- SECTION 2: Where It Oversimplifies -->
+  <div class="section-card">
+    <h2><span class="section-icon" style="background:#fef2f2">&#9888;&#65039;</span> Where the Claim Oversimplifies</h2>
+
+    <h3><span class="num-badge">1</span> The 183-Day Trap (US Side)</h3>
+    <p>If you are physically present in the US for 183 or more days in the same calendar year you sell the securities, and your gains exceed losses, those gains can become taxable in the US at 30% under the NRA rules. The <a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">IRS Substantial Presence Test</a> governs how these days are counted. If you leave mid-year and sell from India later in the same calendar year, count your US days for the entire calendar year carefully.</p>
+
+    <h3><span class="num-badge">2</span> Visa Type Is Everything</h3>
+    <p>The NRA exemption works cleanly for H-1B, L-1, F-1, and other non-immigrant visa holders—once you have properly terminated US tax residency by departing. However:</p>
+    <ul>
+      <li>If you hold a US green card, you remain a “resident alien” for US tax purposes even after physically leaving the country.</li>
+      <li>Simply moving abroad does <strong>not</strong> end US tax residency for green card holders.</li>
+      <li>You must formally abandon the card (<a href="https://www.irs.gov/forms-pubs/about-form-8854" target="_blank" rel="noopener">IRS Form 8854</a> + USCIS Form I-407) and satisfy the IRS residency termination date rules before the NRA exemption applies.</li>
+      <li>Green card holders who skip this step often discover years later that the IRS still considers them US taxpayers.</li>
+    </ul>
+    <div class="callout red"><span class="callout-icon">🔴</span><span>Green card holders: do not assume you become an NRA simply by moving abroad. Formal abandonment is required.</span></div>
+
+    <h3><span class="num-badge">3</span> The DTAA Savings Clause</h3>
+    <p>Article 1(4) of the <a href="https://www.irs.gov/pub/irs-trty/india.pdf" target="_blank" rel="noopener">India–US tax treaty</a> has a “savings clause” that preserves the US’s right to tax its own citizens and residents regardless of what the treaty allocates. This means the treaty’s allocation of capital gains to India does not override US taxation if you are still technically a US resident (e.g., via green card).</p>
+
+    <h3><span class="num-badge">4</span> Exit Tax — If You Held a Green Card 8+ Years</h3>
+    <p><a href="https://www.irs.gov/individuals/international-taxpayers/expatriation-tax" target="_blank" rel="noopener">Section 877A of the US Tax Code</a> imposes a “deemed-sale” exit tax on “covered expatriates”—those who held a green card for 8 or more years before relinquishing it. If this applies, you face a tax on unrealised gains across your entire asset base on the day you exit, as if everything was sold at fair market value.</p>
+    <div class="callout amber"><span class="callout-icon">⚠️</span><span>This is a serious liability that a CPA must assess before departure, not after.</span></div>
+
+    <h3><span class="num-badge">5</span> Dividends Are Different from Capital Gains</h3>
+    <p>The NRA exemption covers capital gains on sales—it does <strong>not</strong> cover dividend income. While you continue to hold US ETFs after becoming an NRA, distributions will still have <a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">US withholding</a> applied:</p>
+    <ul>
+      <li>Standard rate: 30%</li>
+      <li>Reduced treaty rate under India–US DTAA: typically 15–25%, depending on classification</li>
+      <li>You must file a <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">W-8BEN</a> with your broker and claim treaty benefits proactively—many investors miss this</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 3: Summary Table -->
+  <div class="section-card">
+    <h2><span class="section-icon" style="background:#f0fdf4">&#128202;</span> Summary: When It Works and When It Doesn’t</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>India (RNOR)</th>
+            <th>US Side</th>
+            <th>Net Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Visa holder, properly departed, sells during RNOR</td>
+            <td><span class="badge green">Exempt</span></td>
+            <td>Likely exempt—<a href="https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens" target="_blank" rel="noopener">NRA portfolio gain rule</a></td>
+            <td><span class="badge green">$0 — strategy works</span></td>
+          </tr>
+          <tr>
+            <td>Green card holder, card not formally abandoned</td>
+            <td><span class="badge green">Exempt</span></td>
+            <td>Still taxable as US resident alien</td>
+            <td><span class="badge red">US tax still applies</span></td>
+          </tr>
+          <tr>
+            <td>Departed mid-year, 183+ days in US in year of sale</td>
+            <td><span class="badge green">Exempt</span></td>
+            <td>30% NRA tax may apply—<a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">183-day rule</a></td>
+            <td><span class="badge amber">Partial failure</span></td>
+          </tr>
+          <tr>
+            <td>Dividends received while holding US ETFs as NRA</td>
+            <td><span class="badge green">Exempt</span></td>
+            <td><a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">US withholding 15–30%</a> applies</td>
+            <td><span class="badge red">Always withheld</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:.75rem;font-size:.88rem;color:var(--gray-600)"><em>All figures illustrative. Tax outcomes depend on individual circumstances. Verify with a qualified CPA.</em></p>
+  </div>
+
+  <!-- SECTION 4: Checklist -->
+  <div class="section-card">
+    <h2><span class="section-icon" style="background:#f0fdf4">&#9989;</span> RNOR Qualification — Quick Checklist</h2>
+    <p>You qualify for <a href="https://www.incometaxindia.gov.in/w/residential-status" target="_blank" rel="noopener">RNOR status in India</a> if <strong>either</strong> condition is met for the relevant financial year:</p>
+    <ul class="checklist" style="margin-top:.75rem">
+      <li>You were a Non-Resident of India (NRI) for <strong>9 out of the 10 financial years</strong> preceding the year of return</li>
+      <li>You were present in India for <strong>729 days or fewer</strong> during the 7 financial years preceding the year of return</li>
+    </ul>
+    <div class="callout blue" style="margin-top:1rem"><span class="callout-icon">💡</span><span>Most people who have lived abroad for several years satisfy one or both conditions. Confirm with a Chartered Accountant in India before assuming eligibility.</span></div>
+  </div>
+
+  <!-- BOTTOM LINE -->
+  <div class="bottom-line">
+    <h2><span class="section-icon" style="background:rgba(255,255,255,.15);font-size:16px">&#127919;</span> Bottom Line</h2>
+    <p>The “zero tax in both countries” outcome is achievable—but it is a <strong style="color:#fff">potential best case, not a guaranteed outcome</strong>. It works cleanly for non-immigrant visa holders who properly depart the US and update their tax residency. It does not automatically work for green card holders. The <a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">183-day rule</a> and <a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">dividend withholding</a> are genuine traps even for visa holders.</p>
+    <p style="margin-top:.75rem">Before relying on this strategy: confirm your visa/residency status, engage a US-India cross-border CPA for the dual-status departure year return, and open the RNOR conversation with a CA in India well before you land.</p>
+  </div>
+
+  <p class="disclaimer">This page is for informational purposes only and does not constitute legal or tax advice. Please consult a qualified professional for personalised guidance.</p>
+
+</div><!-- /container -->
 </body>
 </html>
