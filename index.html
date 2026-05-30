@@ -3,24 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
+  <title>RNOR Tax Strategy — Fact Check</title>
   <style>
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      background: #f0f4f8;
-      font-family: sans-serif;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #1a202c;
+      background: #fafafa;
     }
-    h1 {
-      font-size: 3rem;
-      color: #2d3748;
-    }
+    h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+    h2 { font-size: 1.3rem; margin-top: 2rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.3rem; }
+    h3 { font-size: 1.05rem; margin-top: 1.5rem; }
+    table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; font-size: 0.95rem; }
+    th, td { border: 1px solid #cbd5e0; padding: 0.6rem 0.8rem; text-align: left; }
+    th { background: #edf2f7; }
+    ul, ol { padding-left: 1.4rem; }
+    .disclaimer { font-size: 0.88rem; color: #718096; border-top: 1px solid #e2e8f0; margin-top: 2.5rem; padding-top: 1rem; }
   </style>
 </head>
 <body>
-  <h1>Hello, World!</h1>
+
+<h1>RNOR Tax Strategy — Fact Check</h1>
+<p>Does the "zero tax in both countries" claim for capital gains hold up? Below is a structured breakdown of what the RNOR strategy actually claims, where it is well-founded, and where it oversimplifies.</p>
+
+<h2>What the RNOR Strategy Actually Claims</h2>
+<p>The claim has two parts, each resting on different legal foundations:</p>
+
+<h3>Part 1 — India: RNOR Exempts Foreign Income</h3>
+<p>This part is well-founded. Under the Indian Income Tax Act, a Resident but Not Ordinarily Resident (RNOR) is not taxed on income that accrues or arises outside India. Capital gains from selling US ETFs after returning to India, while in RNOR status, generally fall into this category — meaning India would not tax them. RNOR status typically lasts 2–3 financial years after return, provided you qualify (see checklist below).</p>
+
+<h3>Part 2 — US: NRA Portfolio Capital Gains Exemption</h3>
+<p>This part is real but conditional. Under US domestic law (IRC §871(a)(2)), a Non-Resident Alien (NRA) is generally not subject to US tax on capital gains from the sale of publicly traded stocks and ETFs. The India–US Double Tax Avoidance Agreement (DTAA), Article 13, reinforces this by allocating capital gains taxing rights to the country of residence — which would be India during RNOR. Since India then exempts those gains under RNOR, the result is indeed potentially zero tax in either country.</p>
+<p>The strategy is not wrong — but the conditions that must be met are stricter than the headline suggests.</p>
+
+<h2>Where the Claim Oversimplifies</h2>
+
+<h3>1. The 183-Day Trap (US Side)</h3>
+<p>If you are physically present in the US for 183 or more days in the same calendar year you sell the securities, and your gains exceed losses, those gains can become taxable in the US at 30% under the NRA rules. If you leave mid-year and sell from India later in the same calendar year, count your US days for that entire calendar year carefully.</p>
+
+<h3>2. Visa Type Is Everything</h3>
+<p>The NRA exemption works cleanly for H-1B, L-1, F-1, and other non-immigrant visa holders — once you have properly terminated US tax residency by departing. However:</p>
+<ul>
+  <li>If you hold a US green card, you remain a "resident alien" for US tax purposes even after physically leaving the country.</li>
+  <li>Simply moving abroad does not end US tax residency for green card holders.</li>
+  <li>You must formally abandon the card (IRS Form 8854 + USCIS Form I-407) and satisfy the IRS residency termination date rules before the NRA exemption applies.</li>
+  <li>Green card holders who skip this step and sell US equities abroad often discover years later that the IRS still considers them US taxpayers.</li>
+</ul>
+
+<h3>3. The DTAA Savings Clause</h3>
+<p>Article 1(4) of the India–US tax treaty has a "savings clause" that preserves the US's right to tax its own citizens and residents, regardless of what the treaty allocates. This means the treaty's allocation of capital gains to India does not override US taxation if you are still technically a US resident (e.g., via green card).</p>
+
+<h3>4. Exit Tax — If You Held a Green Card 8+ Years</h3>
+<p>Section 877A of the US Tax Code imposes a "deemed-sale" exit tax on "covered expatriates" — those who held a green card for 8 or more years before relinquishing it. If this applies, you face a tax on unrealised gains across your entire asset base on the day you exit, as if everything was sold at fair market value. This is a serious liability that a CPA must assess before departure.</p>
+
+<h3>5. Dividends Are Different from Capital Gains</h3>
+<p>The NRA exemption covers capital gains on sales — it does <strong>not</strong> cover dividend income. While you continue to hold US ETFs after becoming an NRA, distributions will still have US withholding applied:</p>
+<ul>
+  <li>Standard rate: 30%</li>
+  <li>Reduced treaty rate under India–US DTAA: typically 15–25%, depending on classification</li>
+  <li>You must file a W-8BEN with your broker and claim treaty benefits proactively — many investors miss this</li>
+</ul>
+
+<h2>Summary: When the Strategy Works and When It Doesn't</h2>
+<table>
+  <thead>
+    <tr><th>Scenario</th><th>India (RNOR)</th><th>US Side</th><th>Net Outcome</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Visa holder, properly departed, sells during RNOR</td><td>Exempt</td><td>Likely exempt (NRA portfolio gain rule)</td><td>Potentially $0 — strategy works</td></tr>
+    <tr><td>Green card holder, card not formally abandoned</td><td>Exempt</td><td>Still taxable as US resident alien</td><td>US tax still applies — strategy fails on US side</td></tr>
+    <tr><td>Departed mid-year, 183+ days in US in year of sale</td><td>Exempt</td><td>30% NRA tax on net gains may apply</td><td>Partial failure — timing matters</td></tr>
+    <tr><td>Monthly dividends received while holding as NRA</td><td>Exempt</td><td>US withholding 15–30% applies</td><td>Withholding regardless of RNOR</td></tr>
+  </tbody>
+</table>
+<p><em>All figures illustrative. Tax outcomes depend on individual circumstances. Verify with a qualified CPA.</em></p>
+
+<h2>RNOR Qualification — Quick Checklist</h2>
+<p>You qualify for RNOR status in India if <strong>either</strong> condition below is met for the relevant financial year:</p>
+<ul>
+  <li>You were a Non-Resident of India (NRI) for 9 out of the 10 financial years preceding the year of return, <strong>OR</strong></li>
+  <li>You were present in India for 729 days or fewer during the 7 financial years preceding the year of return.</li>
+</ul>
+<p>Most people who have been living abroad for several years will satisfy one or both conditions. Confirm with a Chartered Accountant in India before assuming eligibility.</p>
+
+<h2>Bottom Line</h2>
+<p>The "zero tax in both countries" outcome is achievable — but it is a potential best case, not a guaranteed outcome. It works cleanly for non-immigrant visa holders who properly depart the US and update their tax residency. It does not automatically work for green card holders. The 183-day rule and dividend withholding are genuine traps even for visa holders.</p>
+<p>Before relying on this strategy: confirm your visa/residency status, engage a US-India cross-border CPA for the dual-status departure year return, and open the RNOR conversation with a CA in India well before you land.</p>
+
+<div class="disclaimer">This note is for informational purposes only and does not constitute legal or tax advice. Please consult a qualified professional for personalised guidance.</div>
+
 </body>
 </html>
