@@ -19,6 +19,8 @@
       --amber-bg: #fef3c7;
       --blue:   #1d4ed8;
       --blue-bg: #eff6ff;
+      --purple: #6d28d9;
+      --purple-bg: #f5f3ff;
       --gray-50:  #f9fafb;
       --gray-100: #f3f4f6;
       --gray-200: #e5e7eb;
@@ -39,6 +41,20 @@
       color: var(--gray-800);
       background: var(--gray-50);
     }
+
+    /* NAV */
+    .toc {
+      background: #fff;
+      border-bottom: 1px solid var(--gray-200);
+      padding: .6rem 1.5rem;
+      font-size: .82rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem 1rem;
+      justify-content: center;
+    }
+    .toc a { color: var(--gray-600); border: none; text-decoration: none; white-space: nowrap; }
+    .toc a:hover { color: var(--blue); }
 
     /* HERO */
     .hero {
@@ -143,14 +159,13 @@
       font-weight: 700;
       flex-shrink: 0;
     }
+    .num-badge.purple { background: var(--purple); }
+    .num-badge.green  { background: var(--green); }
 
     p { margin-bottom: .75rem; }
     p:last-child { margin-bottom: 0; }
 
-    ul, ol {
-      padding-left: 1.4rem;
-      margin-bottom: .75rem;
-    }
+    ul, ol { padding-left: 1.4rem; margin-bottom: .75rem; }
     li { margin-bottom: .35rem; }
 
     a { color: var(--blue); text-decoration: none; border-bottom: 1px solid #bfdbfe; transition: color .15s, border-color .15s; }
@@ -171,8 +186,21 @@
     .callout.red    { background: var(--red-bg);    border-left: 3px solid var(--red);    color: #7f1d1d; }
     .callout.amber  { background: var(--amber-bg);  border-left: 3px solid var(--amber);  color: #78350f; }
     .callout.blue   { background: var(--blue-bg);   border-left: 3px solid var(--blue);   color: #1e3a8a; }
+    .callout.purple { background: var(--purple-bg); border-left: 3px solid var(--purple); color: #4c1d95; }
 
-    /* TABLE */
+    /* COMPARISON TABLE (W-9 vs W-8BEN) */
+    .compare-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .92rem; }
+    .compare-table th { padding: .65rem 1rem; text-align: left; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .compare-table th:first-child { background: var(--gray-800); color: #fff; width: 28%; }
+    .compare-table th.w9  { background: #1d4ed8; color: #fff; width: 36%; }
+    .compare-table th.w8  { background: #0d7a55; color: #fff; width: 36%; }
+    .compare-table td { padding: .6rem 1rem; vertical-align: top; border-bottom: 1px solid var(--gray-200); }
+    .compare-table td:first-child { font-weight: 600; color: var(--gray-700, #374151); background: var(--gray-50); font-size: .88rem; }
+    .compare-table td.w9-cell { background: #f0f4ff; }
+    .compare-table td.w8-cell { background: #f0fdf8; }
+    .compare-table tr:last-child td { border-bottom: none; }
+
+    /* STATUS TABLE */
     .table-wrap { overflow-x: auto; margin: 1rem 0; }
     table {
       border-collapse: collapse;
@@ -194,9 +222,11 @@
       padding: .15rem .55rem;
       border-radius: 999px;
     }
-    .badge.green { background: var(--green-bg); color: var(--green); }
-    .badge.red   { background: var(--red-bg);   color: var(--red); }
-    .badge.amber { background: var(--amber-bg); color: var(--amber); }
+    .badge.green  { background: var(--green-bg);  color: var(--green); }
+    .badge.red    { background: var(--red-bg);     color: var(--red); }
+    .badge.amber  { background: var(--amber-bg);   color: var(--amber); }
+    .badge.blue   { background: var(--blue-bg);    color: var(--blue); }
+    .badge.purple { background: var(--purple-bg);  color: var(--purple); }
 
     /* CHECKLIST */
     .checklist { list-style: none; padding: 0; }
@@ -206,10 +236,11 @@
       align-items: flex-start;
       padding: .5rem 0;
       border-bottom: 1px solid var(--gray-100);
+      font-size: .95rem;
     }
     .checklist li:last-child { border-bottom: none; }
     .checklist li::before {
-      content: '✓';
+      content: '\2713';
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -222,6 +253,69 @@
       flex-shrink: 0;
       margin-top: .2rem;
     }
+
+    /* ACTIONABLE STEPS */
+    .action-phase { margin-bottom: 1.5rem; }
+    .phase-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .25rem .7rem;
+      border-radius: 999px;
+      margin-bottom: .85rem;
+    }
+    .phase-label.now    { background: #fef3c7; color: #92400e; }
+    .phase-label.before { background: #fde8e8; color: #9b1c1c; }
+    .phase-label.depart { background: #e0f2fe; color: #075985; }
+    .phase-label.after  { background: #d1fae5; color: #065f46; }
+    .phase-label.india  { background: #ede9fe; color: #4c1d95; }
+
+    .action-list { list-style: none; padding: 0; }
+    .action-list li {
+      display: flex;
+      gap: .85rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: .95rem;
+      align-items: flex-start;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--gray-800);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: .15rem;
+    }
+    .action-num.amber  { background: var(--amber); }
+    .action-num.blue   { background: var(--blue); }
+    .action-num.green  { background: var(--green); }
+    .action-num.purple { background: var(--purple); }
+    .action-content strong { display: block; margin-bottom: .15rem; }
+    .action-content { flex: 1; }
+
+    /* FORMULA BOX */
+    .formula-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-family: 'Courier New', monospace;
+      font-size: .92rem;
+      margin: .75rem 0;
+      line-height: 2;
+    }
+    .formula-box .highlight { color: #6ee7b7; font-weight: 700; }
 
     /* BOTTOM LINE CARD */
     .bottom-line {
@@ -236,16 +330,7 @@
     .bottom-line a { color: #6ee7b7; border-color: rgba(110,231,183,.4); }
     .bottom-line a:hover { color: #a7f3d0; border-color: #a7f3d0; }
 
-    /* DISCLAIMER */
-    .disclaimer {
-      text-align: center;
-      font-size: .83rem;
-      color: var(--gray-400);
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--gray-200);
-    }
-
-    /* DIVIDER */
+    /* DIVIDERS */
     .part-label {
       font-size: .72rem;
       font-weight: 700;
@@ -254,9 +339,34 @@
       color: var(--gray-400);
       margin: .25rem 0 .6rem;
     }
+    .section-divider {
+      border: none;
+      border-top: 2px dashed var(--gray-200);
+      margin: 1.5rem 0;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      text-align: center;
+      font-size: .83rem;
+      color: var(--gray-400);
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-200);
+    }
   </style>
 </head>
 <body>
+
+<!-- NAV -->
+<nav class="toc">
+  <a href="#strategy">What the Strategy Claims</a>
+  <a href="#oversimplifies">Where It Oversimplifies</a>
+  <a href="#summary-table">Summary Table</a>
+  <a href="#w9-vs-w8ben">W-9 vs W-8BEN</a>
+  <a href="#h1b-status">H-1B Pre-Departure Status</a>
+  <a href="#action-plan">Action Plan</a>
+  <a href="#rnor-checklist">RNOR Checklist</a>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
@@ -271,76 +381,56 @@
   <div class="infographic-wrap">
     <svg viewBox="0 0 800 430" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Arial, sans-serif" aria-label="RNOR Strategy summary infographic">
       <rect width="800" height="430" fill="#f9fafb" rx="12"/>
-
-      <!-- Title -->
       <text x="400" y="38" text-anchor="middle" font-size="16" font-weight="700" fill="#111827">RNOR Strategy — Scenario Outcomes at a Glance</text>
-
-      <!-- Header row -->
       <rect x="16" y="52" width="768" height="34" rx="6" fill="#1f2937"/>
       <text x="130" y="73" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Scenario</text>
       <text x="360" y="73" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">India (RNOR)</text>
       <text x="520" y="73" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">US (NRA)</text>
       <text x="683" y="73" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Net Outcome</text>
-
-      <!-- Dividers -->
       <line x1="252" y1="52" x2="252" y2="296" stroke="#374151" stroke-width="1"/>
       <line x1="436" y1="52" x2="436" y2="296" stroke="#374151" stroke-width="1"/>
       <line x1="600" y1="52" x2="600" y2="296" stroke="#374151" stroke-width="1"/>
-
-      <!-- Row 1 — green -->
-      <rect x="16" y="86" width="768" height="52" rx="0" fill="#ecfdf5"/>
-      <text x="26" y="107" font-size="11" fill="#065f46">Visa holder (H-1B / L-1 / F-1),</text>
-      <text x="26" y="122" font-size="11" fill="#065f46">properly departed, sells during RNOR</text>
+      <rect x="16" y="86" width="768" height="52" fill="#ecfdf5"/>
+      <text x="26" y="107" font-size="11" fill="#065f46">Visa holder (H-1B / L-1 / F-1), properly</text>
+      <text x="26" y="122" font-size="11" fill="#065f46">departed, sells during RNOR</text>
       <text x="360" y="116" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Exempt</text>
       <text x="520" y="116" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Likely exempt</text>
       <rect x="618" y="98" width="130" height="28" rx="14" fill="#059669"/>
       <text x="683" y="116" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">🟢  $0 — Works</text>
-
-      <!-- Row 2 — red -->
-      <rect x="16" y="138" width="768" height="52" rx="0" fill="#fef2f2"/>
+      <rect x="16" y="138" width="768" height="52" fill="#fef2f2"/>
       <text x="26" y="159" font-size="11" fill="#7f1d1d">Green card holder, card not</text>
       <text x="26" y="174" font-size="11" fill="#7f1d1d">formally abandoned</text>
       <text x="360" y="168" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Exempt</text>
       <text x="520" y="168" text-anchor="middle" font-size="12" fill="#dc2626" font-weight="700">✗ Still taxable</text>
       <rect x="618" y="150" width="130" height="28" rx="14" fill="#dc2626"/>
       <text x="683" y="168" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">🔴  Fails (US side)</text>
-
-      <!-- Row 3 — amber -->
-      <rect x="16" y="190" width="768" height="52" rx="0" fill="#fffbeb"/>
+      <rect x="16" y="190" width="768" height="52" fill="#fffbeb"/>
       <text x="26" y="211" font-size="11" fill="#78350f">Departed mid-year, 183+ days</text>
       <text x="26" y="226" font-size="11" fill="#78350f">in US in year of sale</text>
       <text x="360" y="220" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Exempt</text>
       <text x="520" y="220" text-anchor="middle" font-size="12" fill="#d97706" font-weight="700">⚠ 30% may apply</text>
       <rect x="615" y="202" width="136" height="28" rx="14" fill="#d97706"/>
       <text x="683" y="220" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">🟡  Timing risk</text>
-
-      <!-- Row 4 — red -->
-      <rect x="16" y="242" width="768" height="52" rx="0" fill="#fef2f2"/>
+      <rect x="16" y="242" width="768" height="52" fill="#fef2f2"/>
       <text x="26" y="263" font-size="11" fill="#7f1d1d">Dividends received while</text>
       <text x="26" y="278" font-size="11" fill="#7f1d1d">holding US ETFs as NRA</text>
       <text x="360" y="272" text-anchor="middle" font-size="12" fill="#059669" font-weight="700">✓ Exempt</text>
       <text x="520" y="272" text-anchor="middle" font-size="12" fill="#dc2626" font-weight="700">✗ 15–30% withheld</text>
       <rect x="610" y="254" width="142" height="28" rx="14" fill="#dc2626"/>
       <text x="683" y="272" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">🔴  Always withheld</text>
-
-      <!-- Bottom border of rows -->
       <rect x="16" y="294" width="768" height="1" fill="#d1d5db"/>
-
-      <!-- 3 callout cards -->
       <rect x="16" y="308" width="238" height="106" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
       <text x="135" y="330" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8">⏰  183-Day Rule</text>
       <text x="135" y="348" text-anchor="middle" font-size="10.5" fill="#374151">Count US physical-presence days</text>
       <text x="135" y="363" text-anchor="middle" font-size="10.5" fill="#374151">for the full calendar year of sale.</text>
       <text x="135" y="378" text-anchor="middle" font-size="10.5" fill="#374151">Departing mid-year doesn’t reset</text>
       <text x="135" y="393" text-anchor="middle" font-size="10.5" fill="#374151">your count to zero.</text>
-
       <rect x="281" y="308" width="238" height="106" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
       <text x="400" y="330" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">💳  Green Card = Extra Steps</text>
       <text x="400" y="348" text-anchor="middle" font-size="10.5" fill="#374151">File IRS Form 8854 and USCIS</text>
       <text x="400" y="363" text-anchor="middle" font-size="10.5" fill="#374151">Form I-407 to formally abandon.</text>
       <text x="400" y="378" text-anchor="middle" font-size="10.5" fill="#374151">Moving abroad alone does NOT</text>
       <text x="400" y="393" text-anchor="middle" font-size="10.5" fill="#374151">end US tax residency.</text>
-
       <rect x="546" y="308" width="238" height="106" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
       <text x="665" y="330" text-anchor="middle" font-size="11" font-weight="700" fill="#059669">📝  File W-8BEN Early</text>
       <text x="665" y="348" text-anchor="middle" font-size="10.5" fill="#374151">Submit W-8BEN to your broker</text>
@@ -350,73 +440,60 @@
     </svg>
   </div>
 
-  <!-- SECTION 1: What It Claims -->
-  <div class="section-card">
+  <!-- SECTION: What It Claims -->
+  <div id="strategy" class="section-card">
     <h2><span class="section-icon" style="background:#eff6ff">&#128203;</span> What the RNOR Strategy Actually Claims</h2>
     <p>The claim has two parts, each resting on different legal foundations:</p>
-
     <div class="part-label">Part 1 — India</div>
     <h3>RNOR Exempts Foreign Income</h3>
     <p>This part is well-founded. Under the <a href="https://www.incometaxindia.gov.in/w/section-6-24" target="_blank" rel="noopener">Indian Income Tax Act, Section 6</a>, a Resident but Not Ordinarily Resident (RNOR) is not taxed on income that accrues or arises outside India. Capital gains from selling US ETFs after returning to India, while in RNOR status, generally fall into this category—meaning India would not tax them. RNOR status typically lasts 2–3 financial years after return, provided you qualify.</p>
-
     <div class="part-label" style="margin-top:1.25rem">Part 2 — United States</div>
     <h3>NRA Portfolio Capital Gains Exemption</h3>
     <p>This part is real but conditional. Under <a href="https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens" target="_blank" rel="noopener">US domestic law (IRC §871)</a>, a Non-Resident Alien (NRA) is generally not subject to US tax on capital gains from the sale of publicly traded stocks and ETFs. The <a href="https://www.irs.gov/businesses/international-businesses/india-tax-treaty-documents" target="_blank" rel="noopener">India–US DTAA, Article 13</a>, reinforces this by allocating capital gains taxing rights to the country of residence—which would be India during RNOR. Since India then exempts those gains under RNOR, the result is potentially zero tax in either country.</p>
     <div class="callout green"><span class="callout-icon">✅</span><span>The strategy is not wrong—but the conditions that must be met are stricter than the headline suggests.</span></div>
   </div>
 
-  <!-- SECTION 2: Where It Oversimplifies -->
-  <div class="section-card">
+  <!-- SECTION: Where It Oversimplifies -->
+  <div id="oversimplifies" class="section-card">
     <h2><span class="section-icon" style="background:#fef2f2">&#9888;&#65039;</span> Where the Claim Oversimplifies</h2>
-
     <h3><span class="num-badge">1</span> The 183-Day Trap (US Side)</h3>
     <p>If you are physically present in the US for 183 or more days in the same calendar year you sell the securities, and your gains exceed losses, those gains can become taxable in the US at 30% under the NRA rules. The <a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">IRS Substantial Presence Test</a> governs how these days are counted. If you leave mid-year and sell from India later in the same calendar year, count your US days for the entire calendar year carefully.</p>
-
     <h3><span class="num-badge">2</span> Visa Type Is Everything</h3>
     <p>The NRA exemption works cleanly for H-1B, L-1, F-1, and other non-immigrant visa holders—once you have properly terminated US tax residency by departing. However:</p>
     <ul>
-      <li>If you hold a US green card, you remain a “resident alien” for US tax purposes even after physically leaving the country.</li>
+      <li>If you hold a US green card, you remain a “resident alien” for US tax purposes even after physically leaving.</li>
       <li>Simply moving abroad does <strong>not</strong> end US tax residency for green card holders.</li>
-      <li>You must formally abandon the card (<a href="https://www.irs.gov/forms-pubs/about-form-8854" target="_blank" rel="noopener">IRS Form 8854</a> + USCIS Form I-407) and satisfy the IRS residency termination date rules before the NRA exemption applies.</li>
-      <li>Green card holders who skip this step often discover years later that the IRS still considers them US taxpayers.</li>
+      <li>You must formally abandon the card (<a href="https://www.irs.gov/forms-pubs/about-form-8854" target="_blank" rel="noopener">IRS Form 8854</a> + USCIS Form I-407) before the NRA exemption applies.</li>
     </ul>
-    <div class="callout red"><span class="callout-icon">🔴</span><span>Green card holders: do not assume you become an NRA simply by moving abroad. Formal abandonment is required.</span></div>
-
+    <div class="callout red"><span class="callout-icon">🔴</span><span>Green card holders: formal abandonment is required. Moving abroad alone does not make you an NRA.</span></div>
     <h3><span class="num-badge">3</span> The DTAA Savings Clause</h3>
-    <p>Article 1(4) of the <a href="https://www.irs.gov/pub/irs-trty/india.pdf" target="_blank" rel="noopener">India–US tax treaty</a> has a “savings clause” that preserves the US’s right to tax its own citizens and residents regardless of what the treaty allocates. This means the treaty’s allocation of capital gains to India does not override US taxation if you are still technically a US resident (e.g., via green card).</p>
-
+    <p>Article 1(4) of the <a href="https://www.irs.gov/pub/irs-trty/india.pdf" target="_blank" rel="noopener">India–US tax treaty</a> has a “savings clause” that preserves the US’s right to tax its own citizens and residents regardless of what the treaty allocates. This does not override US taxation if you are still technically a US resident (e.g., via green card).</p>
     <h3><span class="num-badge">4</span> Exit Tax — If You Held a Green Card 8+ Years</h3>
-    <p><a href="https://www.irs.gov/individuals/international-taxpayers/expatriation-tax" target="_blank" rel="noopener">Section 877A of the US Tax Code</a> imposes a “deemed-sale” exit tax on “covered expatriates”—those who held a green card for 8 or more years before relinquishing it. If this applies, you face a tax on unrealised gains across your entire asset base on the day you exit, as if everything was sold at fair market value.</p>
-    <div class="callout amber"><span class="callout-icon">⚠️</span><span>This is a serious liability that a CPA must assess before departure, not after.</span></div>
-
+    <p><a href="https://www.irs.gov/individuals/international-taxpayers/expatriation-tax" target="_blank" rel="noopener">Section 877A of the US Tax Code</a> imposes a “deemed-sale” exit tax on “covered expatriates”—those who held a green card for 8 or more years before relinquishing it. If this applies, you face a tax on unrealised gains across your entire asset base on the day you exit. <strong>Note: this does NOT apply to H-1B visa holders</strong>, who are not lawful permanent residents.</p>
+    <div class="callout amber"><span class="callout-icon">⚠️</span><span>This is a serious liability that a CPA must assess before departure, not after—but only for green card holders.</span></div>
     <h3><span class="num-badge">5</span> Dividends Are Different from Capital Gains</h3>
-    <p>The NRA exemption covers capital gains on sales—it does <strong>not</strong> cover dividend income. While you continue to hold US ETFs after becoming an NRA, distributions will still have <a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">US withholding</a> applied:</p>
+    <p>The NRA exemption covers capital gains on sales—it does <strong>not</strong> cover dividend income. While you hold US ETFs as an NRA, distributions will still have <a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">US withholding</a> applied:</p>
     <ul>
       <li>Standard rate: 30%</li>
       <li>Reduced treaty rate under India–US DTAA: typically 15–25%, depending on classification</li>
-      <li>You must file a <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">W-8BEN</a> with your broker and claim treaty benefits proactively—many investors miss this</li>
+      <li>File a <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">W-8BEN</a> with your broker to claim treaty benefits proactively—many investors miss this</li>
     </ul>
   </div>
 
-  <!-- SECTION 3: Summary Table -->
-  <div class="section-card">
+  <!-- SECTION: Summary Table -->
+  <div id="summary-table" class="section-card">
     <h2><span class="section-icon" style="background:#f0fdf4">&#128202;</span> Summary: When It Works and When It Doesn’t</h2>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr>
-            <th>Scenario</th>
-            <th>India (RNOR)</th>
-            <th>US Side</th>
-            <th>Net Outcome</th>
-          </tr>
+          <tr><th>Scenario</th><th>India (RNOR)</th><th>US Side</th><th>Net Outcome</th></tr>
         </thead>
         <tbody>
           <tr>
             <td>Visa holder, properly departed, sells during RNOR</td>
             <td><span class="badge green">Exempt</span></td>
             <td>Likely exempt—<a href="https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens" target="_blank" rel="noopener">NRA portfolio gain rule</a></td>
-            <td><span class="badge green">$0 — strategy works</span></td>
+            <td><span class="badge green">$0 — works</span></td>
           </tr>
           <tr>
             <td>Green card holder, card not formally abandoned</td>
@@ -442,8 +519,316 @@
     <p style="margin-top:.75rem;font-size:.88rem;color:var(--gray-600)"><em>All figures illustrative. Tax outcomes depend on individual circumstances. Verify with a qualified CPA.</em></p>
   </div>
 
-  <!-- SECTION 4: Checklist -->
-  <div class="section-card">
+  <!-- ============================================================ -->
+  <!-- NEW SECTION: W-9 vs W-8BEN                                  -->
+  <!-- ============================================================ -->
+  <div id="w9-vs-w8ben" class="section-card">
+    <h2><span class="section-icon" style="background:#ede9fe">&#128196;</span> W-9 vs W-8BEN — Which Form Do You Need?</h2>
+    <p>These two forms are the IRS mechanism for telling a payer whether you are a <strong>US person</strong> (W-9) or a <strong>foreign person</strong> (W-8BEN). Using the wrong one is a false certification signed under perjury, and triggers incorrect withholding and reporting. Here is how they differ:</p>
+
+    <div style="overflow-x:auto;margin:1rem 0">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="w9">Form W-9</th>
+            <th class="w8">Form W-8BEN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full name</td>
+            <td class="w9-cell">Request for Taxpayer Identification Number and Certification</td>
+            <td class="w8-cell">Certificate of Foreign Status of Beneficial Owner for US Tax Withholding</td>
+          </tr>
+          <tr>
+            <td>Who uses it</td>
+            <td class="w9-cell">US citizens and <strong>resident aliens</strong> (including H-1B holders currently in the US)</td>
+            <td class="w8-cell"><strong>Nonresident aliens</strong> only—foreign nationals living outside the US who are not US tax residents</td>
+          </tr>
+          <tr>
+            <td>Filed with</td>
+            <td class="w9-cell">The payer / requester (bank, broker, employer)—<strong>never</strong> sent to the IRS directly</td>
+            <td class="w8-cell">The withholding agent (bank, broker)—<strong>never</strong> sent to the IRS directly</td>
+          </tr>
+          <tr>
+            <td>Income reported on</td>
+            <td class="w9-cell">Form 1099 (interest, dividends, miscellaneous income)</td>
+            <td class="w8-cell">Form 1042-S (foreign person’s US source income)</td>
+          </tr>
+          <tr>
+            <td>Withholding if not provided</td>
+            <td class="w9-cell"><strong>24% backup withholding</strong> under IRC §3406</td>
+            <td class="w8-cell"><strong>30% NRA withholding</strong> under IRC §1441</td>
+          </tr>
+          <tr>
+            <td>Can claim treaty benefits?</td>
+            <td class="w9-cell">No—W-9 certifies US person status; treaty benefits for NRAs are irrelevant</td>
+            <td class="w8-cell">Yes—Part II allows claiming reduced withholding rate under a tax treaty (e.g., India-US DTAA)</td>
+          </tr>
+          <tr>
+            <td>Validity period</td>
+            <td class="w9-cell">Indefinite unless information changes</td>
+            <td class="w8-cell">3 calendar years from date signed (e.g., signed Oct 2024 → expires Dec 31, 2027)</td>
+          </tr>
+          <tr>
+            <td>Key identifier required</td>
+            <td class="w9-cell">US Social Security Number (SSN) or EIN</td>
+            <td class="w8-cell">Foreign TIN (e.g., Indian PAN) and/or US ITIN if claiming treaty benefits</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:1.25rem">What happens if you use the wrong form?</h3>
+    <div class="callout red" style="margin-bottom:.75rem">
+      <span class="callout-icon">🚫</span>
+      <span><strong>Resident alien submits W-8BEN:</strong> This is a false declaration under penalties of perjury. The payer issues Form 1042-S instead of 1099, misclassifying your income. The IRS sees a mismatch when you file as a resident alien. Overwithholding and audit flags result. The payer may also face penalties.</span>
+    </div>
+    <div class="callout amber">
+      <span class="callout-icon">⚠️</span>
+      <span><strong>Nonresident alien submits W-9:</strong> The payer skips 30% NRA withholding, leading to under-withholding. The IRS can assess the full 30% that should have been withheld, plus interest and penalties, against the withholding agent. Your income is also reported incorrectly on 1099 instead of 1042-S.</span>
+    </div>
+
+    <h3>The transition: when to switch from W-9 to W-8BEN</h3>
+    <p>Once you permanently depart the US and your <strong>residency termination date</strong> is established, you must notify each withholding agent (bank, broker) within <strong>30 days</strong> of that change in circumstances. Replace your W-9 on file with a <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">Form W-8BEN</a>—from that point forward, your accounts should issue 1042-S (not 1099) and apply NRA withholding rules. See <a href="https://www.irs.gov/publications/p515" target="_blank" rel="noopener">Publication 515</a> for the full withholding agent rules.</p>
+    <div class="callout blue">
+      <span class="callout-icon">💡</span>
+      <span><strong>H-1B holders still living in the US:</strong> You are currently a US resident alien. You must use W-9—not W-8BEN—regardless of your intent to leave. Submitting W-8BEN before your departure date is incorrect and constitutes a false certification.</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- NEW SECTION: H-1B Pre-Departure Status                      -->
+  <!-- ============================================================ -->
+  <div id="h1b-status" class="section-card">
+    <h2><span class="section-icon" style="background:#fef3c7">&#128101;</span> H-1B Holder: Your Tax Status Before You Leave</h2>
+    <p>If you are on an H-1B visa, still living and working in the US, and have been present for <strong>more than 31 days</strong> in this calendar year—here is exactly where you stand and what you do and do not qualify for.</p>
+
+    <h3><span class="num-badge amber">1</span> Your Current Status: US Resident Alien</h3>
+    <p>H-1B holders are subject to the <a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">Substantial Presence Test (SPT)</a> and—unlike F-1/J-1 students—have <strong>no exempt-individual exception</strong>. Every day of physical presence counts. The SPT requires meeting <strong>both</strong> conditions:</p>
+
+    <div class="formula-box">
+      <span class="highlight">Prong 1:</span> &ge;31 days present in the current calendar year &nbsp;✓ (you meet this)<br>
+      <span class="highlight">Prong 2:</span> (Days this year &times;1) + (Days year−1 &times;&frac13;) + (Days year−2 &times;&frac16;) &ge; <span class="highlight">183</span>
+    </div>
+
+    <p>For a typical H-1B holder with 2+ years of US presence, this formula easily exceeds 183—making you a <strong>resident alien taxed on worldwide income</strong>, just like a US citizen. You cannot claim the NRA capital gains exemption, and you must use Form W-9 with your financial institutions.</p>
+    <div class="callout red">
+      <span class="callout-icon">🚫</span>
+      <span>The <strong>closer connection exception</strong> to the SPT is also unavailable to you right now—it requires your tax home to be in a foreign country for the <em>entire</em> year. While you are still working in the US, your tax home is here.</span>
+    </div>
+
+    <h3><span class="num-badge amber">2</span> What You Do NOT Qualify For (Yet)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Benefit</th><th>Available to you now?</th><th>Why not</th></tr></thead>
+        <tbody>
+          <tr><td>NRA capital gains exemption (IRC §871)</td><td><span class="badge red">No</span></td><td>You are a resident alien; NRA rules don’t apply</td></tr>
+          <tr><td>Portfolio interest exemption (US bank interest tax-free)</td><td><span class="badge red">No</span></td><td>Only available to NRAs; your interest is taxable income</td></tr>
+          <tr><td>Form W-8BEN / treaty withholding reduction on dividends</td><td><span class="badge red">No</span></td><td>W-8BEN is for nonresident aliens only; you must use W-9</td></tr>
+          <tr><td>RNOR status in India</td><td><span class="badge amber">Not yet</span></td><td>RNOR begins after you return to India and your NRI period qualifies</td></tr>
+          <tr><td>IRS expatriation tax / Form 8854</td><td><span class="badge green">N/A — not applicable</span></td><td>Form 8854 applies to green card holders only; H-1B holders are exempt from §877A exit tax</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3><span class="num-badge amber">3</span> Your Departure Year Will Be a Dual-Status Year</h3>
+    <p>The year you leave the US will be a <a href="https://www.irs.gov/individuals/international-taxpayers/dual-status-individuals" target="_blank" rel="noopener"><strong>dual-status year</strong></a>—you are taxed as a resident alien from January 1 through your departure date, and as a nonresident alien from your departure date through December 31.</p>
+
+    <div class="table-wrap" style="margin:.85rem 0">
+      <table>
+        <thead><tr><th>Period</th><th>Tax treatment</th><th>Key rules</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Jan 1 → Departure date</strong> (resident period)</td>
+            <td><span class="badge blue">Worldwide income taxed</span></td>
+            <td>Graduated rates; all income from all sources; FICA applies; no standard deduction for the full year</td>
+          </tr>
+          <tr>
+            <td><strong>Departure date → Dec 31</strong> (NRA period)</td>
+            <td><span class="badge green">US-source income only</span></td>
+            <td>30% on FDAP (dividends etc.); capital gains from securities generally exempt if &lt;183 NRA days in the year; treaty rates available with W-8BEN</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Dual-status filing restrictions:</strong> You cannot file Married Filing Jointly, cannot claim the standard deduction, and cannot claim the Earned Income Credit. File <a href="https://www.irs.gov/instructions/i1040nr" target="_blank" rel="noopener">Form 1040-NR</a> marked “Dual-Status Return” with a Form 1040 statement attached for the resident period.</p>
+
+    <h3><span class="num-badge amber">4</span> Your Residency Termination Date</h3>
+    <p>For H-1B holders who met the SPT, the <a href="https://www.irs.gov/individuals/international-taxpayers/residency-starting-and-ending-dates" target="_blank" rel="noopener">residency termination date</a> is your <strong>last day of physical presence in the US</strong> for the calendar year (with up to 10 de minimis days of later visits allowed). To use an earlier termination date, you must:
+    </p>
+    <ul>
+      <li>No longer be a US resident after departure</li>
+      <li>Have your <strong>tax home in a foreign country</strong> for the rest of the calendar year</li>
+      <li>Have a <strong>closer connection</strong> to that foreign country than to the US for the rest of the year</li>
+      <li>Timely file a signed Residency Termination Statement with your tax return</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- NEW SECTION: Actionable Steps                               -->
+  <!-- ============================================================ -->
+  <div id="action-plan" class="section-card">
+    <h2><span class="section-icon" style="background:#d1fae5">&#9989;</span> Your Action Plan — Step by Step</h2>
+    <p>This is a consolidated, sequenced checklist for an H-1B visa holder planning to permanently return to their home country and execute the RNOR strategy. Steps are organised by timing.</p>
+
+    <!-- Phase 1 -->
+    <div class="action-phase">
+      <div class="phase-label now">🕒 Right Now — While Still in the US</div>
+      <ul class="action-list">
+        <li>
+          <span class="action-num amber">1</span>
+          <div class="action-content">
+            <strong>Confirm your SPT status and count days carefully</strong>
+            Use the <a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">Substantial Presence Test formula</a> to verify you are a resident alien. Count every day of US presence in the current year and the prior two years using the weighted formula. This determines your current tax obligations and helps you plan the optimal departure date.
+          </div>
+        </li>
+        <li>
+          <span class="action-num amber">2</span>
+          <div class="action-content">
+            <strong>Continue using Form W-9 with all financial institutions</strong>
+            Do not submit W-8BEN yet. You are a resident alien and must certify US person status on W-9. Submitting W-8BEN while still a US tax resident is a false certification under penalties of perjury.
+          </div>
+        </li>
+        <li>
+          <span class="action-num amber">3</span>
+          <div class="action-content">
+            <strong>Engage a US-India cross-border CPA now</strong>
+            The departure year (dual-status return) is one of the most complex returns you will ever file. Engage a CPA with US-India international tax experience <em>before</em> you leave—not after. They will help you plan the optimal departure date, prepare Form 1040-C or 2063, and structure the dual-status return. See <a href="https://www.irs.gov/publications/p519" target="_blank" rel="noopener">IRS Publication 519</a> for the full framework.
+          </div>
+        </li>
+        <li>
+          <span class="action-num amber">4</span>
+          <div class="action-content">
+            <strong>Plan your departure date strategically</strong>
+            Your residency termination date equals your last day in the US. The earlier in the calendar year you leave, the shorter your resident period (and thus worldwide income exposure). However, also count your total US days against the NRA 183-day capital-gains test for the departure year—if you have already spent close to 183 days in the US, capital gains realised after departure in the same year may still be taxable.
+          </div>
+        </li>
+        <li>
+          <span class="action-num amber">5</span>
+          <div class="action-content">
+            <strong>File all outstanding prior-year US tax returns</strong>
+            The IRS sailing permit process requires confirmation that all prior-year returns are filed and taxes paid. Ensure your returns for all years of H-1B residence are complete and any balances settled.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="action-phase">
+      <div class="phase-label before">📅 Before Departure — At Least 2 Weeks Out</div>
+      <ul class="action-list">
+        <li>
+          <span class="action-num" style="background:#dc2626">6</span>
+          <div class="action-content">
+            <strong>Obtain your IRS Sailing Permit (Departure Clearance)</strong>
+            Most departing aliens must obtain an IRS departure clearance before leaving the US. Visit an IRS office (not more than 30 days before departure, allow at least 2 weeks). File either:
+            <ul style="margin-top:.4rem">
+              <li><a href="https://www.irs.gov/forms-pubs/about-form-2063" target="_blank" rel="noopener"><strong>Form 2063</strong></a> — simpler option if your tax affairs are straightforward and prior returns are filed</li>
+              <li><a href="https://www.irs.gov/instructions/i1040c" target="_blank" rel="noopener"><strong>Form 1040-C</strong></a> — full tax return for the period January 1 through departure; required if the IRS determines 1040-C is necessary for tax collection</li>
+            </ul>
+            See <a href="https://www.irs.gov/individuals/international-taxpayers/departing-alien-clearance-sailing-permit" target="_blank" rel="noopener">IRS Departing Alien Clearance</a> and <a href="https://www.irs.gov/taxtopics/tc858" target="_blank" rel="noopener">Topic 858</a> for full details.
+          </div>
+        </li>
+        <li>
+          <span class="action-num" style="background:#dc2626">7</span>
+          <div class="action-content">
+            <strong>Address state tax residency</strong>
+            Notify your state tax authority of your change in residency. Some states (particularly California) aggressively assert continuing tax jurisdiction after physical departure if domicile ties remain. Document your departure: close local accounts, surrender your driver’s license, update voter registration, and keep records.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="action-phase">
+      <div class="phase-label depart">✈️ On and After Departure</div>
+      <ul class="action-list">
+        <li>
+          <span class="action-num blue">8</span>
+          <div class="action-content">
+            <strong>Document your departure thoroughly</strong>
+            Keep copies of your boarding pass, passport entry/exit stamps, I-94 departure record, and any records of establishing your new foreign tax home (employment contract, lease, utility bills, bank accounts in your home country).
+          </div>
+        </li>
+        <li>
+          <span class="action-num blue">9</span>
+          <div class="action-content">
+            <strong>Notify all withholding agents within 30 days</strong>
+            Contact each US bank, brokerage, and employer within 30 days of your departure date. Inform them of your change in circumstances (you are now an NRA) and replace your W-9 on file with a <a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">Form W-8BEN</a>. If claiming India-US treaty benefits to reduce dividend withholding, complete Part II of the W-8BEN with the treaty article and reduced rate. Accounts must switch to 1042-S reporting.
+          </div>
+        </li>
+        <li>
+          <span class="action-num blue">10</span>
+          <div class="action-content">
+            <strong>Monitor your US day-count for the departure year</strong>
+            After departing, track any return visits to the US for the remainder of the calendar year. The NRA capital gains exemption under <a href="https://www.irs.gov/individuals/international-taxpayers/the-taxation-of-capital-gains-of-nonresident-students-scholars-and-employees-of-foreign-governments" target="_blank" rel="noopener">IRC §871(a)(2)</a> applies only if your total US days as an NRA in the calendar year are <strong>fewer than 183</strong>. This is a separate, simpler count from the SPT formula.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="action-phase">
+      <div class="phase-label after">📄 Tax Filing — Departure Year Return</div>
+      <ul class="action-list">
+        <li>
+          <span class="action-num green">11</span>
+          <div class="action-content">
+            <strong>File your dual-status return</strong>
+            File <a href="https://www.irs.gov/instructions/i1040nr" target="_blank" rel="noopener">Form 1040-NR</a> marked “Dual-Status Return” at the top. Attach a Form 1040 (labeled “Dual-Status Statement”) showing income earned during the resident period (Jan 1 → departure date). Deadline: April 15 if you received wages subject to withholding; June 15 otherwise.
+          </div>
+        </li>
+        <li>
+          <span class="action-num green">12</span>
+          <div class="action-content">
+            <strong>Attach the Residency Termination Statement</strong>
+            File a statement signed under penalties of perjury establishing your residency termination date. It must include: your name, address, US TIN, visa type and number, passport number, tax year, last day of US presence, and facts establishing your tax home was in a foreign country after departure. See <a href="https://www.irs.gov/individuals/international-taxpayers/residency-starting-and-ending-dates" target="_blank" rel="noopener">Residency Starting and Ending Dates</a>.
+          </div>
+        </li>
+        <li>
+          <span class="action-num green">13</span>
+          <div class="action-content">
+            <strong>Confirm: Form 8854 is NOT required for H-1B holders</strong>
+            The expatriation tax (§877A) and <a href="https://www.irs.gov/forms-pubs/about-form-8854" target="_blank" rel="noopener">Form 8854</a> apply only to US citizens and <em>long-term lawful permanent residents</em> (green card holders with 8+ years of LPR status). H-1B visa holders are not lawful permanent residents and are entirely exempt from these rules.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Phase 5 -->
+    <div class="action-phase">
+      <div class="phase-label india">🇮🇳 In India — Activating the RNOR Window</div>
+      <ul class="action-list">
+        <li>
+          <span class="action-num purple">14</span>
+          <div class="action-content">
+            <strong>Confirm RNOR eligibility with a CA in India before you land</strong>
+            RNOR status requires that you were an NRI for 9 of the prior 10 Indian financial years, or present in India for 729 days or fewer in the prior 7 years. Engage an Indian Chartered Accountant before returning to confirm eligibility and plan your return timing. Returning in February/March (near the end of the Indian financial year) can maximise the number of RNOR years available to you.
+          </div>
+        </li>
+        <li>
+          <span class="action-num purple">15</span>
+          <div class="action-content">
+            <strong>Realise US capital gains during the RNOR window</strong>
+            Once RNOR, capital gains from selling US stocks/ETFs are exempt from Indian tax (foreign income exemption under <a href="https://www.incometaxindia.gov.in/w/section-6-24" target="_blank" rel="noopener">Section 6 of the Indian Income Tax Act</a>). Combined with the NRA capital gains exemption on the US side, this is the zero-tax window the strategy targets. RNOR typically lasts 2–3 Indian financial years—use this window intentionally.
+          </div>
+        </li>
+        <li>
+          <span class="action-num purple">16</span>
+          <div class="action-content">
+            <strong>Manage dividends separately—they are always withheld</strong>
+            Even during RNOR, US-source dividends from ETFs face <a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">US withholding (15–30%)</a>. Ensure your W-8BEN has a valid India-US treaty claim in Part II to get the reduced rate. Track withholding credits for potential refund or credit in India under the DTAA if needed.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION: RNOR Checklist -->
+  <div id="rnor-checklist" class="section-card">
     <h2><span class="section-icon" style="background:#f0fdf4">&#9989;</span> RNOR Qualification — Quick Checklist</h2>
     <p>You qualify for <a href="https://www.incometaxindia.gov.in/w/residential-status" target="_blank" rel="noopener">RNOR status in India</a> if <strong>either</strong> condition is met for the relevant financial year:</p>
     <ul class="checklist" style="margin-top:.75rem">
@@ -456,12 +841,12 @@
   <!-- BOTTOM LINE -->
   <div class="bottom-line">
     <h2><span class="section-icon" style="background:rgba(255,255,255,.15);font-size:16px">&#127919;</span> Bottom Line</h2>
-    <p>The “zero tax in both countries” outcome is achievable—but it is a <strong style="color:#fff">potential best case, not a guaranteed outcome</strong>. It works cleanly for non-immigrant visa holders who properly depart the US and update their tax residency. It does not automatically work for green card holders. The <a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">183-day rule</a> and <a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">dividend withholding</a> are genuine traps even for visa holders.</p>
-    <p style="margin-top:.75rem">Before relying on this strategy: confirm your visa/residency status, engage a US-India cross-border CPA for the dual-status departure year return, and open the RNOR conversation with a CA in India well before you land.</p>
+    <p>The “zero tax in both countries” outcome is achievable—but it is a <strong style="color:#fff">potential best case, not a guaranteed outcome</strong>. It works cleanly for H-1B and other non-immigrant visa holders who properly terminate US tax residency and document the departure. It does not automatically work for green card holders. The <a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test" target="_blank" rel="noopener">183-day rule</a>, <a href="https://www.irs.gov/individuals/international-taxpayers/nra-withholding" target="_blank" rel="noopener">dividend withholding</a>, and the dual-status filing year are genuine complexities that require professional guidance.</p>
+    <p style="margin-top:.75rem">Before relying on this strategy: confirm your SPT status, obtain an IRS sailing permit, file your dual-status return carefully, update W-9 → W-8BEN at all institutions after departure, and open the RNOR conversation with a CA in India well before you land.</p>
   </div>
 
-  <p class="disclaimer">This page is for informational purposes only and does not constitute legal or tax advice. Please consult a qualified professional for personalised guidance.</p>
+  <p class="disclaimer">This page is for informational purposes only and does not constitute legal or tax advice. Please consult a qualified professional for personalised guidance. Sources include <a href="https://www.irs.gov/publications/p519" target="_blank" rel="noopener" style="color:inherit;border-color:rgba(0,0,0,.2)">IRS Publication 519</a>, <a href="https://www.irs.gov/publications/p515" target="_blank" rel="noopener" style="color:inherit;border-color:rgba(0,0,0,.2)">Publication 515</a>, and the <a href="https://www.irs.gov/individuals/taxation-of-alien-individuals-by-immigration-status-h-1b" target="_blank" rel="noopener" style="color:inherit;border-color:rgba(0,0,0,.2)">IRS H-1B tax guidance</a>.</p>
 
-</div><!-- /container -->
+</div>
 </body>
 </html>
