@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yosemite Family Trip — 6 Nights, Summer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:#f7f5f0;color:#1a1a18;min-height:100vh}
+  .hero{background:#1a2a1a;color:#fff;padding:48px 32px 40px;text-align:center}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,44px);font-weight:600;letter-spacing:-0.5px;margin-bottom:8px}
+  .hero .sub{font-size:14px;color:#9db89d;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+  .hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:20px}
+  .hero-stat .val{font-size:22px;font-weight:600;color:#c8e6c9}
+  .hero-stat .lbl{font-size:11px;color:#7a9b7a;text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+  .container{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px}
+  .pil-photo{background:#dbeafe;color:#1d4ed8}
+  .pil-walk{background:#dcfce7;color:#15803d}
+  .pil-wild{background:#fef3c7;color:#92400e}
+  .pil-view{background:#ede9fe;color:#5b21b6}
+  .pil-rest{background:#f3f4f6;color:#374151}
+  .pil-swim{background:#cffafe;color:#0e7490}
+  .day-card{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:28px;border:1px solid #e8e4dd;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  .day-header{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid #f0ece6}
+  .day-num{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0}
+  .day-htitle{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;margin:0}
+  .day-hsub{font-size:12px;color:#6b7280;margin-top:3px}
+  .stop{display:flex;gap:12px;padding:13px 20px;border-bottom:1px solid #f7f5f1}
+  .stop:last-of-type{border-bottom:none}
+  .stop-time{font-size:11px;color:#9ca3af;min-width:54px;padding-top:3px;flex-shrink:0;font-weight:500}
+  .stop-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+  .stop-name{font-size:14px;font-weight:600;color:#1a1a18;margin-bottom:4px}
+  .stop-desc{font-size:13px;color:#4b5563;line-height:1.55}
+  .stop-pills{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+  .drive{display:flex;align-items:center;gap:10px;padding:7px 20px;background:#faf9f7}
+  .drive-line{flex:1;height:1px;border-top:1px dashed #d1cdc5}
+  .drive-text{font-size:11px;color:#9ca3af;white-space:nowrap;font-weight:500}
+  .tip{margin:0 20px 16px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 14px;font-size:12px;color:#78350f;display:flex;gap:8px;align-items:flex-start}
+  .kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:8px}
+  .kit-item{background:#fff;border:1px solid #e8e4dd;border-radius:10px;padding:10px 12px;font-size:12px;color:#4b5563;display:flex;gap:8px;align-items:flex-start}
+  .kit-icon{font-size:15px;flex-shrink:0}
+  .section-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#1a1a18;margin:28px 0 12px}
+  .park-divider{background:#1a2a3a;color:#c8d6e6;border-radius:12px;padding:12px 18px;margin:32px 0 24px;font-size:13px;display:flex;align-items:center;gap:10px}
+  .park-divider strong{color:#fff;font-size:15px}
+  .photo-strip{display:flex;gap:6px;margin-top:10px;overflow-x:auto;padding-bottom:2px}
+  .photo-strip svg{flex-shrink:0;border:1px solid #e8e4dd;cursor:pointer}
+  .photo-cap{font-size:10px;color:#9ca3af;margin-top:3px;font-style:italic}
+  .d0{background:#dbeafe;color:#1e40af}
+  .d1{background:#d1fae5;color:#065f46}
+  .d2{background:#fef3c7;color:#92400e}
+  .d3{background:#ede9fe;color:#5b21b6}
+  .d4{background:#fce7f3;color:#9d174d}
+  .d5{background:#ccfbf1;color:#0f766e}
+  .d6{background:#fee2e2;color:#991b1b}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="sub">Family Trip · Summer · Toddler-Friendly</p>
+  <h1>Yosemite National Park</h1>
+  <p style="font-size:13px;color:#7a9b7a;margin-top:8px">6 nights · Fly into FAT or SFO · With a 3-year-old</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="val">FAT</div><div class="lbl">Closest airport</div></div>
+    <div class="hero-stat"><div class="val">6 nights</div><div class="lbl">7 days</div></div>
+    <div class="hero-stat"><div class="val">1 Park</div><div class="lbl">Valley + High Country</div></div>
+    <div class="hero-stat"><div class="val">Timed</div><div class="lbl">Entry required</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div style="background:#fff;border:1px solid #e8e4dd;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:#374151;line-height:1.6">
+    <strong style="color:#1a1a18">✈️ Airport strategy — Fresno (FAT) is your best base, SFO works too:</strong> Fresno Yosemite International (FAT) is 65 miles from Yosemite Valley — about 1 hr 15 min drive through the foothills on Hwy 41. United, Delta, and Southwest all serve FAT. SFO and SJC are ~3.5 hrs from the valley but offer more nonstop options from most cities. Book a mid-size SUV — Hwy 41 and Big Oak Flat Road are fine, but you’ll want ground clearance if you plan to drive Tioga Road (D5). <strong>Critical:</strong> Yosemite Valley requires a timed entry permit (7am Pacific, 5 months in advance) for day visitors from May through October — book this before you book anything else at <a href="https://www.recreation.gov" style="color:#1d4ed8">recreation.gov</a>. Lodging guests at in-park hotels do not need a separate permit.
+  </div>
+
+  <div style="background:#e0f2fe;border:1px solid #bae6fd;border-radius:10px;padding:10px 14px;margin-bottom:24px;font-size:12px;color:#0c4a6e;display:flex;gap:8px">
+    <span style="flex-shrink:0;margin-top:1px">🗺️</span>
+    <span><strong>Logic of the route:</strong> FAT arrival → drive Hwy 41 north into the park (D0) → two full Valley days covering west and east floor (D1–D2) → Glacier Point Road for the high overlook (D3) → Mariposa Grove giant sequoias and Wawona (D4) → Tioga Road high country: Olmsted Point, Tenaya Lake, Tuolumne Meadows (D5) → early morning farewell walk and drive to FAT (D6). No backtracking — each day radiates from the valley or moves logically through the park.</span>
+  </div>
+
+  <div class="legend">
+    <span class="pill pil-photo">📷 photo spot</span>
+    <span class="pill pil-walk">🚶 easy walk</span>
+    <span class="pill pil-wild">🐾 wildlife</span>
+    <span class="pill pil-view">🌄 overlook</span>
+    <span class="pill pil-swim">🏖️ swimming</span>
+    <span class="pill pil-rest">☕ rest / meal</span>
+  </div>
+
+  <div class="park-divider">🏞️ <div><strong>Yosemite National Park</strong> &nbsp;·&nbsp; All 7 Days &nbsp;·&nbsp; Base: Yosemite Valley Lodge or Curry Village</div></div>
+
+  <!-- DAY 0 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num d0">D0</div>
+      <div><p class="day-htitle">Arrival — fly into Fresno (FAT)</p><p class="day-hsub">Drive Hwy 41 · first valley views · check in</p></div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">Midday</span>
+      <div class="stop-icon" style="background:#dbeafe">✈️</div>
+      <div>
+        <div class="stop-name">Fresno Yosemite International (FAT)</div>
+        <div class="stop-desc">Smaller airport, easy baggage claim and car rental. United, Delta, American, Southwest all serve FAT. The drive to Yosemite Valley on Hwy 41 takes 1 hr 15 min in normal traffic — beautiful foothills scenery the whole way. Buy groceries at a Fresno Trader Joe’s or Whole Foods before you leave — in-park food is limited and expensive. Book a child car seat with the rental car company in advance.</div>
+        <div class="stop-pills"><span class="pill pil-rest">☕ rest / meal</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 FAT → Yosemite South Entrance: 65 mi · 1 hr 15 min on Hwy 41</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">2:30 pm</span>
+      <div class="stop-icon" style="background:#d1fae5">🌲</div>
+      <div>
+        <div class="stop-name">Mariposa Grove South Entrance — quick stop</div>
+        <div class="stop-desc">The South Entrance on Hwy 41 puts you right next to Mariposa Grove. If your toddler is still energetic, do a 10-minute walk from the shuttle stop to see your first giant sequoias — it’s jaw-dropping and takes 20 min. You’ll do this properly on D4, but a quick teaser here is irresistible. The Wawona Hotel (8 miles north) has a beautiful porch if you want to stop for lemonade.</div>
+        <div class="stop-pills"><span class="pill pil-walk">🚶 easy walk</span><span class="pill pil-wild">🐾 wildlife</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 South Entrance → Yosemite Valley: 35 mi · 45 min on Wawona Rd</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">4:00 pm</span>
+      <div class="stop-icon" style="background:#fef9c3">🌄</div>
+      <div>
+        <div class="stop-name">Valley View — first look at El Capitan</div>
+        <div class="stop-desc">Coming in on Wawona Road, just before you enter the valley proper, pull off at Valley View. El Capitan fills the entire left frame. The Merced River curves below. This is your child’s first sight of a 3,000-foot granite wall — watch their face. Easy pull-off, 30-second walk to the viewpoint. No crowds here (everyone rushes past to Tunnel View).</div>
+        <div class="photo-strip">
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky0" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87ceeb"/><stop offset="100%" stop-color="#c8e6f5"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky0)"/><polygon points="0,100 0,20 55,65 55,100" fill="#7a6e62"/><polygon points="160,100 160,35 105,68 105,100" fill="#8a7e72"/><rect x="40" y="70" width="80" height="30" fill="#2a4a2a"/><ellipse cx="80" cy="88" rx="30" ry="6" fill="#4a8aaa" opacity="0.7"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Valley View</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky0b" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5ba3d9"/><stop offset="100%" stop-color="#a8d4f0"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky0b)"/><rect x="0" y="15" width="60" height="85" fill="#6a6058"/><rect x="10" y="15" width="4" height="30" fill="#8a8078" opacity="0.3"/><rect x="95" y="30" width="65" height="70" fill="#7a7068"/><rect x="55" y="65" width="45" height="35" fill="#2d5a2d"/><path d="M0,75 Q40,70 80,74 Q120,78 160,72 L160,100 L0,100 Z" fill="#3a7a9a" opacity="0.6"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">El Capitan from Valley View</text></svg>
+        </div>
+        <div class="photo-cap">Valley View — El Capitan and Merced River on arrival</div>
+        <div class="stop-pills"><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-view">🌄 overlook</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 Valley View → Yosemite Valley Lodge: 4 mi · 8 min</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">5:00 pm</span>
+      <div class="stop-icon" style="background:#f3f4f6">🏨</div>
+      <div>
+        <div class="stop-name">Check in — Yosemite Valley Lodge or Curry Village</div>
+        <div class="stop-desc"><strong>Yosemite Valley Lodge</strong> is the best choice with a toddler: motel-style rooms, the Village Grill across the street, and Lower Yosemite Fall is a 5-minute walk. <strong>Curry Village</strong> is more affordable with canvas tent-cabins and a pizza deck with an El Capitan view. Both book out 6-12 months ahead at <a href="https://www.travelyosemite.com" style="color:#1d4ed8">travelyosemite.com</a>. If in-park lodging is unavailable, El Portal (8 mi outside) and Mariposa (30 mi) are fallback options.</div>
+        <div class="stop-pills"><span class="pill pil-rest">☕ rest / meal</span></div>
+      </div>
+    </div>
+    <div class="tip">⚠️ <span><strong>Book your timed entry permit immediately:</strong> Yosemite Valley requires advance day-use permits from late April through October. They open at 7am Pacific exactly 5 months before your visit date and sell out in minutes. Set an alarm and be ready on <a href="https://www.recreation.gov" style="color:#92400e">recreation.gov</a>. In-park hotel guests are exempt from this permit for the days of their stay.</span></div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num d1">D1</div>
+      <div><p class="day-htitle">Valley Floor West — Tunnel View, Bridalveil Fall, El Cap Meadow</p><p class="day-hsub">The greatest hits · all flat or near-flat · perfect for toddlers</p></div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">7:00 am</span>
+      <div class="stop-icon" style="background:#fef9c3">🌅</div>
+      <div>
+        <div class="stop-name">Tunnel View — Yosemite’s iconic panorama</div>
+        <div class="stop-desc">Drive through the Wawona Tunnel and emerge at the most photographed viewpoint in Yosemite. El Capitan anchors the left, Half Dome sits dead center in the distance, Bridalveil Fall threads down the right cliff, and the valley floor stretches away below you in green. Go at 7am before tour buses arrive — parking is a large lot and nearly empty early. Your 3-year-old can stand at the wall and absorb the scale. Morning light on El Cap is golden and direct.</div>
+        <div class="photo-strip">
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87ceeb"/><stop offset="60%" stop-color="#b8dff0"/><stop offset="100%" stop-color="#ddeef8"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky1)"/><polygon points="0,100 0,28 52,60 52,100" fill="#7a6e62"/><polygon points="160,100 160,38 108,64 108,100" fill="#8a7e72"/><polygon points="68,34 80,48 92,34 86,28 74,28" fill="#6a5e52"/><rect x="44" y="70" width="72" height="30" fill="#2a4a2a"/><ellipse cx="80" cy="90" rx="28" ry="5" fill="#4a8aaa" opacity="0.6"/><line x1="106" y1="52" x2="108" y2="72" stroke="white" stroke-width="2" opacity="0.85"/><text x="80" y="98" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Tunnel View</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky1b" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4a261"/><stop offset="40%" stop-color="#e8753a"/><stop offset="100%" stop-color="#87ceeb"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky1b)"/><polygon points="0,100 0,30 50,62 50,100" fill="#6a5e52"/><polygon points="160,100 160,40 110,66 110,100" fill="#7a6e62"/><polygon points="70,36 80,50 90,36 85,30 75,30" fill="#5a4e42"/><rect x="44" y="72" width="72" height="28" fill="#1a3a1a"/><line x1="107" y1="54" x2="109" y2="74" stroke="white" stroke-width="2" opacity="0.9"/><text x="80" y="98" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Tunnel View sunrise</text></svg>
+        </div>
+        <div class="photo-cap">Tunnel View — El Capitan, Half Dome, and Bridalveil Fall in one frame</div>
+        <div class="stop-pills"><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-view">🌄 overlook</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 Tunnel View → Bridalveil Fall: 1 mi · 3 min</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">8:00 am</span>
+      <div class="stop-icon" style="background:#e0f2fe">🌊</div>
+      <div>
+        <div class="stop-name">Bridalveil Fall Trail — toddler’s first waterfall</div>
+        <div class="stop-desc">A 0.5-mile round-trip paved trail leads to the base of Bridalveil Fall, a 620-foot ribbon of white water that sways in the breeze like a veil (hence the name). The trail has a gentle grade. Get to the end of the path and you’re misted by spray — your toddler will go absolutely wild. Slippery rocks near the base, so hold hands. Best flow May–June; still impressive in July–August. Parking at the dedicated lot (fills by 9am in summer).</div>
+        <div class="photo-strip">
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87ceeb"/><stop offset="100%" stop-color="#c8e6f5"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky2)"/><rect x="55" y="0" width="50" height="75" fill="#8a7e72"/><rect x="55" y="0" width="10" height="5" fill="#a09488"/><path d="M75,5 Q77,30 75,55 Q74,65 76,78" stroke="white" stroke-width="3" fill="none" opacity="0.9"/><path d="M74,55 Q80,58 85,55" stroke="white" stroke-width="1.5" fill="none" opacity="0.5"/><rect x="0" y="75" width="160" height="25" fill="#2a4a2a"/><ellipse cx="80" cy="88" rx="40" ry="8" fill="#4a8aaa" opacity="0.5"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Bridalveil Fall</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="100" fill="#7a6e62"/><rect x="60" y="0" width="40" height="70" fill="#8a7e72"/><path d="M78,2 Q80,25 79,50 Q78,62 80,72" stroke="white" stroke-width="4" fill="none" opacity="0.95"/><ellipse cx="80" cy="76" rx="20" ry="8" fill="#a0c8d8" opacity="0.7"/><rect x="0" y="72" width="160" height="28" fill="#3a5a3a"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Bridalveil Fall base</text></svg>
+        </div>
+        <div class="photo-cap">Bridalveil Fall — 620 ft of mist and spray, 0.5 mi from the car</div>
+        <div class="stop-pills"><span class="pill pil-walk">🚶 easy walk</span><span class="pill pil-photo">📷 photo spot</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 Bridalveil → El Capitan Meadow: 2 mi · 5 min</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">9:30 am</span>
+      <div class="stop-icon" style="background:#fef9c3">🧭</div>
+      <div>
+        <div class="stop-name">El Capitan Meadow — look straight up at 3,000 feet</div>
+        <div class="stop-desc">Pull off at El Capitan Meadow and lie on your back in the grass. The sheer granite face of El Capitan towers overhead — the largest exposed granite monolith on Earth. With binoculars, spot climbers inching up the nose. Your toddler can run freely across the flat meadow. Deer graze here in the morning. Best photo: shoot El Cap reflected in a puddle after rain. In summer, bring a blanket and picnic breakfast here.</div>
+        <div class="stop-pills"><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-view">🌄 overlook</span><span class="pill pil-wild">🐾 wildlife</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 El Cap Meadow → Cook’s Meadow: 3 mi · 6 min</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">11:00 am</span>
+      <div class="stop-icon" style="background:#d1fae5">🌿</div>
+      <div>
+        <div class="stop-name">Cook’s Meadow Loop — flat stroller loop around the valley heart</div>
+        <div class="stop-desc">A flat 1-mile paved loop in the center of Yosemite Valley with views of Yosemite Falls, Sentinel Rock, and Royal Arches in every direction. This is one of the best toddler walks in the park — completely flat, no elevation, and surrounded by meadow. The Sentinel Bridge arm of the loop gives you the classic Half Dome reflection in the Merced River (Ansel Adams photographed it from here). Toddlers can walk the whole thing.</div>
+        <div class="stop-pills"><span class="pill pil-walk">🚶 easy walk</span><span class="pill pil-photo">📷 photo spot</span></div>
+      </div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">1:00 pm</span>
+      <div class="stop-icon" style="background:#f3f4f6">🍕</div>
+      <div>
+        <div class="stop-name">Lunch — Village Grill Deck or Curry Village Pizza Deck</div>
+        <div class="stop-desc">Village Grill has a shaded outdoor deck with counter service burgers, wraps, and kids’ meals. Curry Village Pizza Deck has the best view — you eat pizza on picnic tables while looking directly at Glacier Point 3,200 feet above. Both are toddler-friendly. Nap time: head back to the lodge 1–3pm for the toddler’s nap, then return for late afternoon golden hour.</div>
+        <div class="stop-pills"><span class="pill pil-rest">☕ rest / meal</span></div>
+      </div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">5:00 pm</span>
+      <div class="stop-icon" style="background:#fef9c3">🌄</div>
+      <div>
+        <div class="stop-name">Valley View (return) — golden hour on El Capitan</div>
+        <div class="stop-desc">Return to Valley View at 5pm. Late afternoon sun lights up El Capitan in warm orange–gold tones that look completely different from the morning. The Merced River catches the color. This 10-minute stop is one of the great free photography moments in the American West.</div>
+        <div class="stop-pills"><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-view">🌄 overlook</span></div>
+      </div>
+    </div>
+    <div class="tip">🐻 <span><strong>Black bear activity:</strong> Yosemite has about 500 black bears in the park. Never leave food in your car (use bear boxes at campgrounds). If a bear approaches your car, honk the horn. Bears here are not dangerous unless provoked — but they are incredibly clever about getting food from vehicles.</span></div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num d2">D2</div>
+      <div><p class="day-htitle">Valley Floor East — Yosemite Falls, Mirror Lake, Happy Isles</p><p class="day-hsub">Waterfalls up close · lake reflections · Merced River play</p></div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">7:30 am</span>
+      <div class="stop-icon" style="background:#dbeafe">🌊</div>
+      <div>
+        <div class="stop-name">Lower Yosemite Fall Trail — best toddler hike in the park</div>
+        <div class="stop-desc">A 1-mile paved loop from Yosemite Valley Lodge leads to the base of Lower Yosemite Fall (320 ft), directly beneath the combined 2,425-ft Yosemite Falls — the tallest waterfall in North America. The trail is completely flat, paved, and stroller-accessible. In May–June, the spray soaks you; by August the falls slow to a trickle. Either way your toddler will stand in the mist and laugh. Go early to beat the 9am crowds. Walk the full loop past the footbridge for the best angle.</div>
+        <div class="photo-strip">
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87ceeb"/><stop offset="100%" stop-color="#c8e6f5"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky3)"/><rect x="40" y="0" width="80" height="80" fill="#8a7e72"/><path d="M77,0 Q79,15 78,30" stroke="white" stroke-width="3" fill="none" opacity="0.9"/><rect x="60" y="28" width="40" height="14" fill="#7a6e62"/><path d="M77,40 Q79,55 78,72" stroke="white" stroke-width="4" fill="none" opacity="0.95"/><ellipse cx="80" cy="78" rx="22" ry="8" fill="#a0c8d8" opacity="0.8"/><rect x="0" y="75" width="160" height="25" fill="#2a4a2a"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Yosemite Falls</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="100" fill="#9a8e82"/><rect x="50" y="0" width="60" height="72" fill="#8a7e72"/><path d="M76,0 Q78,18 77,35" stroke="white" stroke-width="2.5" fill="none" opacity="0.85"/><rect x="62" y="33" width="30" height="10" fill="#7a6e62"/><path d="M77,42 Q79,58 78,74" stroke="white" stroke-width="3.5" fill="none" opacity="0.92"/><ellipse cx="80" cy="80" rx="18" ry="6" fill="#80b8d0" opacity="0.7"/><rect x="0" y="76" width="160" height="24" fill="#3a5a3a"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Lower Yosemite Fall</text></svg>
+        </div>
+        <div class="photo-cap">Yosemite Falls — 2,425 ft total, tallest waterfall in North America</div>
+        <div class="stop-pills"><span class="pill pil-walk">🚶 easy walk</span><span class="pill pil-photo">📷 photo spot</span></div>
+      </div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">9:30 am</span>
+      <div class="stop-icon" style="background:#f3f4f6">🏙️</div>
+      <div>
+        <div class="stop-name">Yosemite Village — Visitor Center and Ansel Adams Gallery</div>
+        <div class="stop-desc">Yosemite Village is the service hub of the park. Stop at the <strong>Yosemite Valley Visitor Center</strong> for ranger talks and the interactive exhibits (toddlers love the hands-on wildlife displays). Then walk 200 feet to the <strong>Ansel Adams Gallery</strong> — free entry, rotating exhibitions of his Yosemite photographs. The gift shop has excellent prints. Degnan’s Kitchen next door has great breakfast burritos and fresh coffee.</div>
+        <div class="stop-pills"><span class="pill pil-rest">☕ rest / meal</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚌 Valley Shuttle Stop 17 → Mirror Lake trailhead: free YARTS shuttle</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">11:00 am</span>
+      <div class="stop-icon" style="background:#ccfbf1">🧲</div>
+      <div>
+        <div class="stop-name">Mirror Lake Loop — Half Dome reflected in still water</div>
+        <div class="stop-desc">Take the free Valley Shuttle to Stop 17 (no cars beyond this point). It’s a flat, paved 0.5-mile walk from the shuttle stop to Mirror Lake. In spring and early summer, the lake perfectly reflects Half Dome. By late summer it’s more of a sandy meadow (still beautiful). The 5-mile full loop is too long for a toddler — just walk to the lake (1 mile RT from shuttle stop) and let them play at the water’s edge. Tenaya Creek runs alongside — excellent for skipping rocks.</div>
+        <div class="photo-strip">
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lake1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87ceeb"/><stop offset="100%" stop-color="#c8e6f5"/></linearGradient><linearGradient id="wat1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a9ab8"/><stop offset="100%" stop-color="#3a7a98"/></linearGradient></defs><rect width="160" height="100" fill="url(#lake1)"/><polygon points="65,5 80,40 95,5 90,0 70,0" fill="#6a5e52"/><polygon points="70,5 80,40 90,5 88,2 72,2" fill="#7a7068"/><polygon points="78,0 82,0 80,8" fill="white" opacity="0.7"/><rect x="0" y="48" width="160" height="52" fill="url(#wat1)"/><polygon points="65,95 80,60 95,95 90,100 70,100" fill="#5a5048" opacity="0.5"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Mirror Lake — Half Dome reflection</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="100" fill="#a8d4e8"/><polygon points="60,8 80,42 100,8 95,2 65,2" fill="#5a5048"/><rect x="0" y="50" width="160" height="50" fill="#3a6a88"/><polygon points="60,92 80,58 100,92" fill="#4a4038" opacity="0.45"/><line x1="20" y1="60" x2="140" y2="60" stroke="white" stroke-width="0.5" opacity="0.3"/><line x1="15" y1="68" x2="145" y2="68" stroke="white" stroke-width="0.5" opacity="0.25"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Mirror Lake reflections</text></svg>
+        </div>
+        <div class="photo-cap">Mirror Lake — Half Dome reflected perfectly in spring and early summer</div>
+        <div class="stop-pills"><span class="pill pil-walk">🚶 easy walk</span><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-swim">🏖️ swimming</span></div>
+      </div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">2:00 pm</span>
+      <div class="stop-icon" style="background:#ccfbf1">🌊</div>
+      <div>
+        <div class="stop-name">Happy Isles — Merced River play area</div>
+        <div class="stop-desc">Happy Isles is where the Merced River splits around two small islands near the valley’s east end. The water is shallow, clear, and cold — perfect for toddlers to wade and splash in July and August. The footbridge over the river gives excellent views of the canyon. This is also the trailhead for the Mist Trail to Vernal Fall — too difficult with a toddler, but you can walk the first 0.25 mile of flat pavement to see the river up close.</div>
+        <div class="stop-pills"><span class="pill pil-swim">🏖️ swimming</span><span class="pill pil-wild">🐾 wildlife</span></div>
+      </div>
+    </div>
+    <div class="tip">🧔‍♀️ <span><strong>Mist Trail to Vernal Fall:</strong> You’ll see it mentioned everywhere. It’s one of the great hikes in America (2.4 mi RT to Vernal Fall, 7 mi to Nevada Fall). But with a 3-year-old, it is not safe — the granite steps are slippery and the crowds are chaotic. Save it for a future trip. The Happy Isles river area gives you the river experience safely.</span></div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num d3">D3</div>
+      <div><p class="day-htitle">Glacier Point Road — Half Dome at eye level</p><p class="day-hsub">The most dramatic overlook in the Sierra · 32 mi round trip from valley</p></div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">8:00 am</span>
+      <div class="stop-icon" style="background:#ede9fe">🌄</div>
+      <div>
+        <div class="stop-name">Washburn Point — the hidden overlook before Glacier Point</div>
+        <div class="stop-desc">One mile before Glacier Point on the Glacier Point Road, pull off at Washburn Point. Vastly fewer visitors than Glacier Point, and arguably the better view of the Clark Range and Nevada Fall in the distance. Half Dome sits to your left at the same elevation. You can see the entire Yosemite high country from here. A 2-minute walk from the parking area.</div>
+        <div class="stop-pills"><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-view">🌄 overlook</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 Washburn Point → Glacier Point: 1 mi · 3 min</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">9:00 am</span>
+      <div class="stop-icon" style="background:#ede9fe">🏔️</div>
+      <div>
+        <div class="stop-name">Glacier Point — 3,214 feet above the valley floor</div>
+        <div class="stop-desc">Glacier Point is the commanding high overlook of Yosemite Valley. Half Dome stands directly in front of you at nearly the same elevation. You can see Yosemite Falls, Vernal Fall, and Nevada Fall all at once. The valley floor — where you walked yesterday — is 3,200 feet directly below. There’s a railing at the overlook’s edge (hold your toddler firmly). The Glacier Point snack stand opens at 9am. Rangers give talks here throughout the day. Takes about 1.5 hours to enjoy properly.</div>
+        <div class="photo-strip">
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a7abf"/><stop offset="100%" stop-color="#87ceeb"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky4)"/><polygon points="80,15 100,55 60,55" fill="#5a5048"/><polygon points="82,15 98,55 66,55" fill="#6a6058"/><polygon points="80,15 84,22 76,22" fill="#b8b0a8"/><polygon points="0,100 0,60 35,70 60,58 80,56 100,58 125,70 160,60 160,100" fill="#4a6a4a"/><rect x="0" y="90" width="160" height="10" fill="#2a4a2a"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Half Dome from Glacier Point</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky4b" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4a261"/><stop offset="30%" stop-color="#e07840"/><stop offset="100%" stop-color="#4a8abf"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky4b)"/><polygon points="80,18 98,52 62,52" fill="#4a4038"/><polygon points="80,18 84,26 76,26" fill="#a09888"/><polygon points="0,100 0,62 55,68 80,54 105,68 160,62 160,100" fill="#3a5a3a"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Glacier Point at sunset</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="100" fill="#6a8aaa"/><polygon points="75,20 95,58 55,58" fill="#5a5048"/><polygon points="75,20 79,28 71,28" fill="#b0a898"/><path d="M30,60 L35,40 L40,60" stroke="white" stroke-width="1.5" fill="none" opacity="0.7"/><path d="M50,62 L54,45 L58,62" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/><polygon points="0,100 0,64 160,64 160,100" fill="#2a4a2a"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Half Dome panorama</text></svg>
+        </div>
+        <div class="photo-cap">Glacier Point — Half Dome and Nevada Fall, 3,214 ft above the valley</div>
+        <div class="stop-pills"><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-view">🌄 overlook</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 Glacier Point → Valley → Swinging Bridge: 32 mi · 50 min</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">1:00 pm</span>
+      <div class="stop-icon" style="background:#ccfbf1">🏖️</div>
+      <div>
+        <div class="stop-name">Swinging Bridge — Merced River swimming hole</div>
+        <div class="stop-desc">The Merced River at Swinging Bridge (near Sentinel Beach) is the best family swimming spot in Yosemite Valley in summer. The water is clear and cold, the current slow, and the sandy beach is toddler-perfect. El Capitan looms directly above. Bring a picnic and a change of clothes. This is an afternoon that will live in family memory forever.</div>
+        <div class="stop-pills"><span class="pill pil-swim">🏖️ swimming</span><span class="pill pil-wild">🐾 wildlife</span></div>
+      </div>
+    </div>
+    <div class="tip">🌐 <span><strong>Glacier Point Road opens late:</strong> The road to Glacier Point is typically closed until late May due to snow. Confirm it’s open at <a href="https://www.nps.gov/yose/planyourvisit/conditions.htm" style="color:#92400e">nps.gov/yose</a> before your trip. It is sometimes also closed for controlled burns.</span></div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num d4">D4</div>
+      <div><p class="day-htitle">Mariposa Grove &amp; Wawona — the giant sequoias</p><p class="day-hsub">Trees 3,000 years old · toddlers become tiny · historic Wawona Hotel</p></div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">8:30 am</span>
+      <div class="stop-icon" style="background:#fce7f3">🌲</div>
+      <div>
+        <div class="stop-name">Mariposa Grove — 500 ancient giant sequoias</div>
+        <div class="stop-desc">Mariposa Grove is the largest sequoia grove in Yosemite — 500 giant sequoias, including the 3,000-year-old Grizzly Giant (one of the oldest living things on Earth) and the California Tunnel Tree, which you can walk through. From the parking area, it’s 1.6 miles of paved trail to reach the Grizzly Giant and the Tunnel Tree. The grade is gentle and stroller-manageable (though a carrier might be easier). A free tram runs April–November if your toddler is spent. The scale destroys all sense of proportion — your child will look like a doll standing at the base of these trees.</div>
+        <div class="photo-strip">
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="100" fill="#2a4a2a"/><rect x="70" y="0" width="20" height="100" fill="#5a3a18" rx="2"/><rect x="55" y="20" width="50" height="60" fill="#3a6a2a" rx="4"/><rect x="60" y="10" width="40" height="50" fill="#4a7a3a" rx="3"/><rect x="65" y="5" width="30" height="35" fill="#5a8a4a" rx="2"/><rect x="10" y="30" width="12" height="70" fill="#4a2a0a" rx="1"/><rect x="8" y="50" width="18" height="40" fill="#3a5a2a" rx="2"/><rect x="130" y="20" width="15" height="80" fill="#4a2a0a" rx="1"/><rect x="126" y="40" width="22" height="50" fill="#3a5a2a" rx="2"/><rect x="0" y="85" width="160" height="15" fill="#2a3a1a"/><text x="80" y="97" text-anchor="middle" fill="#c8e6c9" font-size="6" font-family="sans-serif" font-weight="bold">Giant Sequoias — Mariposa Grove</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="100" fill="#3a5a3a"/><rect x="65" y="0" width="30" height="100" fill="#6a3a18" rx="3"/><text x="80" y="95" text-anchor="middle" fill="white" font-size="5.5" font-family="sans-serif">Grizzly Giant — 3,000 yrs old</text><rect x="0" y="88" width="160" height="12" fill="#2a3a1a"/><ellipse cx="80" cy="38" rx="35" ry="28" fill="#4a7a3a" opacity="0.8"/><ellipse cx="80" cy="22" rx="25" ry="18" fill="#5a8a4a" opacity="0.8"/><rect x="76" y="64" width="8" height="24" fill="#8a5a28"/><rect x="74" y="74" width="12" height="4" fill="#6a4518"/></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="100" fill="#1a2a1a"/><rect x="50" y="0" width="60" height="100" fill="#5a3010" rx="4"/><path d="M50,40 Q40,42 38,38 Q36,34 40,32 Q45,30 50,32" fill="#4a6a3a"/><path d="M110,35 Q120,37 122,33 Q124,29 120,27 Q115,25 110,27" fill="#4a6a3a"/><rect x="73" y="0" width="14" height="100" fill="#6a3a18"/><ellipse cx="80" cy="95" rx="6" ry="3" fill="#8a5a28"/><text x="80" y="55" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif">Walk through</text><text x="80" y="65" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif">tunnel tree</text></svg>
+        </div>
+        <div class="photo-cap">Mariposa Grove — the Grizzly Giant and California Tunnel Tree</div>
+        <div class="stop-pills"><span class="pill pil-walk">🚶 easy walk</span><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-wild">🐾 wildlife</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 Mariposa Grove → Wawona Hotel: 2.5 mi · 6 min</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">12:00 pm</span>
+      <div class="stop-icon" style="background:#fef9c3">🏡</div>
+      <div>
+        <div class="stop-name">Wawona Hotel — lunch on the historic porch</div>
+        <div class="stop-desc">The Wawona Hotel (built 1879) is one of the oldest resort hotels in California. The white Victorian-style main building has a wraparound porch with rocking chairs overlooking a croquet lawn. The dining room serves a good buffet lunch. This is a lovely, unhurried break with a toddler — grass lawn to run on, a small pool open in summer, and a nine-hole golf course that doubles as a wildlife meadow (deer and turkeys graze the fairways).</div>
+        <div class="stop-pills"><span class="pill pil-rest">☕ rest / meal</span><span class="pill pil-wild">🐾 wildlife</span></div>
+      </div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">2:00 pm</span>
+      <div class="stop-icon" style="background:#fce7f3">🛋️</div>
+      <div>
+        <div class="stop-name">Pioneer Yosemite History Center — covered bridge and horses</div>
+        <div class="stop-desc">A short walk from Wawona Hotel, the Pioneer History Center has a collection of 19th-century buildings relocated from around the park: a covered bridge (children love running through it), a stagecoach barn, a cavalry post, a settler’s cabin. In summer, costumed rangers offer living history demonstrations and horse-drawn stagecoach rides that toddlers adore. Free entry. Budget 45 minutes.</div>
+        <div class="stop-pills"><span class="pill pil-walk">🚶 easy walk</span><span class="pill pil-wild">🐾 wildlife</span></div>
+      </div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">5:30 pm</span>
+      <div class="stop-icon" style="background:#d1fae5">🌿</div>
+      <div>
+        <div class="stop-name">Wawona Meadow Loop — deer at dusk</div>
+        <div class="stop-desc">A flat 3.5-mile loop around the open Wawona Meadow begins right next to the hotel. You don’t need to do the full loop — just walk 15 minutes out and back along the meadow edge. Deer are almost guaranteed at this hour. The wide-open meadow with forest walls is peaceful after a full day. Then drive back to the valley (45 min) or stay overnight at Wawona Hotel.</div>
+        <div class="stop-pills"><span class="pill pil-walk">🚶 easy walk</span><span class="pill pil-wild">🐾 wildlife</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num d5">D5</div>
+      <div><p class="day-htitle">Tioga Road — Olmsted Point, Tenaya Lake, Tuolumne Meadows</p><p class="day-hsub">High Sierra at 9,900 ft · granite domes · alpine lake swimming · open Jun–Oct only</p></div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">8:00 am</span>
+      <div class="stop-icon" style="background:#ccfbf1">🧭</div>
+      <div>
+        <div class="stop-name">Olmsted Point — Half Dome from a completely different angle</div>
+        <div class="stop-desc">Tioga Road (Hwy 120) climbs from the valley through forest and emerges into the open granite high country. Olmsted Point is a vast granite expanse with a direct view of the back of Half Dome — an angle almost no one sees. Glacially polished granite boulders are scattered everywhere. Toddlers can scramble on the smooth rock slabs (watch for sudden drop-offs at edges). Ground squirrels are everywhere and extremely tame (don’t feed them). The view extends back east to Tenaya Canyon. 10-minute stop minimum, 30-minute stop if your child loves rocks.</div>
+        <div class="photo-strip">
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a8abf"/><stop offset="100%" stop-color="#a8d4f0"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky5)"/><rect x="0" y="55" width="160" height="45" fill="#a09888" rx="2"/><polygon points="90,10 110,50 70,50" fill="#6a5e52"/><polygon points="90,10 94,20 86,20" fill="#b8b0a8"/><rect x="0" y="62" width="160" height="5" fill="#888078" opacity="0.4"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Olmsted Point — Half Dome back</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="100" fill="#b0a898"/><ellipse cx="40" cy="65" rx="35" ry="12" fill="#a09080" opacity="0.8"/><ellipse cx="110" cy="72" rx="30" ry="10" fill="#908878" opacity="0.8"/><ellipse cx="80" cy="55" rx="20" ry="8" fill="#c0b8a8"/><rect x="0" y="75" width="160" height="25" fill="#989080"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Glacially polished granite</text></svg>
+        </div>
+        <div class="photo-cap">Olmsted Point — Half Dome’s rarely-seen backside and glacial granite</div>
+        <div class="stop-pills"><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-view">🌄 overlook</span><span class="pill pil-wild">🐾 wildlife</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 Olmsted Point → Tenaya Lake: 2.5 mi · 5 min on Tioga Rd</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">9:30 am</span>
+      <div class="stop-icon" style="background:#ccfbf1">🏖️</div>
+      <div>
+        <div class="stop-name">Tenaya Lake — the perfect alpine swimming lake</div>
+        <div class="stop-desc">Tenaya Lake sits at 8,150 feet elevation surrounded by domes of bare white granite. The lake has a white sandy beach on its west end (large parking area) — wade in, the water is clear and cold (58–65°F in summer). Shallow for 20 feet from shore, ideal for small children. The domes above reflect in the surface. Even if you don’t swim, sit on the beach and eat the lunch you packed. This is the high Sierra at its most accessible and dramatic. Budget 1.5–2 hours here.</div>
+        <div class="photo-strip">
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a7abf"/><stop offset="100%" stop-color="#87ceeb"/></linearGradient><linearGradient id="lake6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a9ac8"/><stop offset="100%" stop-color="#2a6a98"/></linearGradient></defs><rect width="160" height="100" fill="url(#sky6)"/><ellipse cx="30" cy="40" rx="38" ry="20" fill="#c0b8b0"/><ellipse cx="130" cy="45" rx="35" ry="18" fill="#d0c8c0"/><rect x="0" y="52" width="160" height="48" fill="url(#lake6)"/><rect x="0" y="88" width="160" height="12" fill="#c8c0b8"/><line x1="20" y1="62" x2="140" y2="62" stroke="white" stroke-width="0.5" opacity="0.4"/><text x="80" y="97" text-anchor="middle" fill="white" font-size="6" font-family="sans-serif" font-weight="bold">Tenaya Lake at 8,150 ft</text></svg>
+          <svg width="120" height="78" viewBox="0 0 160 100" style="border-radius:8px" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="100" fill="#5a9ac8"/><ellipse cx="80" cy="42" rx="70" ry="40" fill="#4a8ab8"/><rect x="0" y="72" width="160" height="28" fill="#c8c0b0"/><ellipse cx="40" cy="35" rx="35" ry="18" fill="#c8c0b8" opacity="0.8"/><ellipse cx="120" cy="38" rx="30" ry="15" fill="#d0c8c0" opacity="0.8"/><text x="80" y="97" text-anchor="middle" fill="#2a4a2a" font-size="6" font-family="sans-serif" font-weight="bold">Sandy beach, Tenaya Lake</text></svg>
+        </div>
+        <div class="photo-cap">Tenaya Lake — granite domes, white sand beach, cold clear water</div>
+        <div class="stop-pills"><span class="pill pil-swim">🏖️ swimming</span><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-walk">🚶 easy walk</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 Tenaya Lake → Tuolumne Meadows: 8 mi · 12 min</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">12:30 pm</span>
+      <div class="stop-icon" style="background:#ccfbf1">🌿</div>
+      <div>
+        <div class="stop-name">Tuolumne Meadows — the high Sierra’s great open room</div>
+        <div class="stop-desc">At 8,600 feet, Tuolumne Meadows is the largest subalpine meadow in the Sierra Nevada — a vast green carpet threaded by the Tuolumne River, ringed by domes and peaks. Park at the main lot and walk the flat meadow trail (0.5–1 mile, completely flat). The Tuolumne Meadows Grill serves burgers and soft serve ice cream — eat on the porch watching the meadow. This is the start of many great High Sierra backpacking routes, but for families, just absorbing the scale and letting the toddler run through the grass is the whole experience. Marmots and black bears are often spotted near the edges.</div>
+        <div class="stop-pills"><span class="pill pil-walk">🚶 easy walk</span><span class="pill pil-wild">🐾 wildlife</span><span class="pill pil-photo">📷 photo spot</span></div>
+      </div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">3:00 pm</span>
+      <div class="stop-icon" style="background:#ede9fe">🧭</div>
+      <div>
+        <div class="stop-name">Dana Meadows viewpoint — drive-by of Mt. Dana and Ellery Lake</div>
+        <div class="stop-desc">Continue east 5 miles past Tuolumne on Tioga Road to see Mt. Dana (13,057 ft) and the brilliant blue of Ellery Lake just outside the east entrance. Even if you just slow down and look, these views are extraordinary — Sierra peaks at eye level. Then turn around and drive back west. The late afternoon light on the granite domes as you return toward the valley is spectacular.</div>
+        <div class="stop-pills"><span class="pill pil-view">🌄 overlook</span><span class="pill pil-photo">📷 photo spot</span></div>
+      </div>
+    </div>
+    <div class="tip">❄️ <span><strong>Tioga Road is closed from November to late May</strong> due to snow. Check <a href="https://www.nps.gov/yose/planyourvisit/conditions.htm" style="color:#92400e">nps.gov/yose conditions</a> before your trip. If it’s not open, substitute this day with a second Glacier Point visit or the Wawona area. Altitude (8,600 ft): toddlers adjust quickly, but drink extra water and watch for signs of altitude sickness (headache, nausea). Ascend slowly.</span></div>
+  </div>
+
+  <!-- DAY 6 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num d6">D6</div>
+      <div><p class="day-htitle">Departure day — morning farewell, drive to FAT</p><p class="day-hsub">Early valley quiet · Merced River walk · 1 hr 15 min to Fresno</p></div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">6:30 am</span>
+      <div class="stop-icon" style="background:#fef9c3">🌅</div>
+      <div>
+        <div class="stop-name">Cook’s Meadow — sunrise farewell</div>
+        <div class="stop-desc">Get up early and walk to Cook’s Meadow one last time. The valley at 6:30am is almost completely still. The light catches the top of Half Dome pink-orange before it touches anything else. No shuttle buses yet, no crowds. Your toddler may still be half-asleep in a carrier — that’s fine. This is one of those quiet moments that sticks.</div>
+        <div class="stop-pills"><span class="pill pil-photo">📷 photo spot</span><span class="pill pil-walk">🚶 easy walk</span></div>
+      </div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">8:00 am</span>
+      <div class="stop-icon" style="background:#f3f4f6">☕</div>
+      <div>
+        <div class="stop-name">Breakfast — Village Grill or Degnan’s</div>
+        <div class="stop-desc">Both open by 8am. Pack up, load the car, eat. Check out by 11am. Buy a Yosemite memento at the Valley Visitor Center gift shop before you leave — 100% of proceeds go to park programs.</div>
+        <div class="stop-pills"><span class="pill pil-rest">☕ rest / meal</span></div>
+      </div>
+    </div>
+    <div class="stop">
+      <span class="stop-time">9:30 am</span>
+      <div class="stop-icon" style="background:#fef9c3">🌄</div>
+      <div>
+        <div class="stop-name">Valley View — one last look</div>
+        <div class="stop-desc">On your way out of the park via Hwy 41, stop at Valley View one final time. El Capitan glows in morning light. The Merced curves below. You’ve spent six days walking beneath these walls and now you’re leaving them behind. Your toddler will probably say “I want to stay.” They’re right.</div>
+        <div class="stop-pills"><span class="pill pil-photo">📷 photo spot</span></div>
+      </div>
+    </div>
+    <div class="drive"><div class="drive-line"></div><div class="drive-text">🚗 Valley View → Fresno FAT Airport: 68 mi · 1 hr 15 min on Hwy 41 south</div><div class="drive-line"></div></div>
+    <div class="stop">
+      <span class="stop-time">11:00 am</span>
+      <div class="stop-icon" style="background:#dbeafe">✈️</div>
+      <div>
+        <div class="stop-name">Fresno Airport (FAT) — return rental car</div>
+        <div class="stop-desc">FAT is a small, easy airport — drop rental car, quick security, and you’re done. Book your return flights no earlier than 1:30pm to give yourself time. If you have a later flight, consider stopping in Fresno at the excellent <strong>Forestiere Underground Gardens</strong> (Baldasare Forestiere’s hand-carved subterranean home — strange and wonderful, and toddlers love the underground tunnels).</div>
+        <div class="stop-pills"><span class="pill pil-rest">☕ rest / meal</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKING / TIPS -->
+  <p class="section-title">What to pack for a Yosemite trip with a toddler</p>
+  <div class="kit-grid">
+    <div class="kit-item"><span class="kit-icon">🧴</span><div><strong>Hiking carrier / backpack</strong><br>Essential for Mariposa Grove and any uneven terrain. Toddlers tire quickly.</div></div>
+    <div class="kit-item"><span class="kit-icon">☀️</span><div><strong>SPF 50 sunscreen</strong><br>Valley reflects UV. High elevation (Tioga Road) intensifies exposure significantly.</div></div>
+    <div class="kit-item"><span class="kit-icon">👟</span><div><strong>Water sandals + trail shoes</strong><br>Merced River wading and trail walking both happen in the same day.</div></div>
+    <div class="kit-item"><span class="kit-icon">🎂</span><div><strong>Dry snacks for the car</strong><br>Trailheads often far from food. Cliff bars, fruit pouches, and cheese sticks.</div></div>
+    <div class="kit-item"><span class="kit-icon">🔭</span><div><strong>Binoculars</strong><br>Spot climbers on El Capitan and wildlife in meadows. Kids love their own pair.</div></div>
+    <div class="kit-item"><span class="kit-icon">🩹</span><div><strong>First aid + blister kit</strong><br>Granite edges are sharp. Pack band-aids and antiseptic wipes.</div></div>
+    <div class="kit-item"><span class="kit-icon">🍧</span><div><strong>Layers / fleece</strong><br>Valley evenings cool quickly. Tioga Road can be 40°F even in August.</div></div>
+    <div class="kit-item"><span class="kit-icon">💧</span><div><strong>Reusable water bottles</strong><br>Hydration stations throughout the park. Altitude increases fluid loss.</div></div>
+    <div class="kit-item"><span class="kit-icon">📱</span><div><strong>Downloaded offline maps</strong><br>Cell signal is poor in the valley and nonexistent on Tioga Road.</div></div>
+  </div>
+
+  <div style="margin-top:32px;background:#1a2a1a;color:#c8e6c9;border-radius:12px;padding:16px 20px;font-size:13px;line-height:1.7">
+    <strong style="color:#fff;display:block;margin-bottom:8px">✅ Before you go — booking checklist</strong>
+    <ul style="list-style:none;padding:0">
+      <li style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.08)">&#9744; Yosemite timed entry permit (recreation.gov — 7am Pacific, 5 months out)</li>
+      <li style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.08)">&#9744; In-park lodging (travelyosemite.com — 6–12 months out)</li>
+      <li style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.08)">&#9744; Rental car with child car seat (one-way not needed — fly FAT both ways)</li>
+      <li style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.08)">&#9744; America the Beautiful Annual Pass ($80 — covers $35 Yosemite fee + any other park)</li>
+      <li style="padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.08)">&#9744; Verify Glacier Point Road and Tioga Road are open (nps.gov/yose)</li>
+      <li style="padding:4px 0">&#9744; Check bear canister rules if camping — required in wilderness, recommended in valley</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
